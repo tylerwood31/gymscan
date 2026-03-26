@@ -16,11 +16,14 @@ struct MuscleSelectionView: View {
                 }
                 .padding()
             }
+            .background(GymScanTheme.background)
 
             generateButton
         }
+        .background(GymScanTheme.background)
         .navigationTitle("Build Your Workout")
         .navigationBarTitleDisplayMode(.large)
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .alert("Error", isPresented: $showError) {
             Button("OK") {}
         } message: {
@@ -30,8 +33,10 @@ struct MuscleSelectionView: View {
 
     private var muscleGroupSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Target Muscles")
-                .font(.headline)
+            Text("TARGET MUSCLES")
+                .font(.system(size: 13, weight: .bold))
+                .tracking(1.5)
+                .foregroundStyle(GymScanTheme.textSecondary)
 
             MuscleGroupPicker(selectedMuscles: $workoutViewModel.selectedMuscles)
         }
@@ -39,8 +44,10 @@ struct MuscleSelectionView: View {
 
     private var durationSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Duration")
-                .font(.headline)
+            Text("DURATION")
+                .font(.system(size: 13, weight: .bold))
+                .tracking(1.5)
+                .foregroundStyle(GymScanTheme.textSecondary)
 
             Picker("Duration", selection: $workoutViewModel.selectedDuration) {
                 ForEach(workoutViewModel.durations, id: \.self) { duration in
@@ -54,36 +61,30 @@ struct MuscleSelectionView: View {
     private var generateButton: some View {
         VStack(spacing: 0) {
             Divider()
+                .overlay(GymScanTheme.surfaceLight)
             Button {
-                guard let gymId = scanViewModel.currentGymId else { return }
-                Task {
-                    await workoutViewModel.generateWorkout(gymId: gymId, modelContext: modelContext)
-                    if workoutViewModel.error != nil {
-                        showError = true
-                    } else {
-                        path.append(ScanFlowStep.workout)
-                    }
-                }
+                path.append(ScanFlowStep.generating)
             } label: {
-                HStack {
-                    if workoutViewModel.isGenerating {
-                        ProgressView()
-                            .tint(.white)
-                    } else {
-                        Image(systemName: "bolt.fill")
-                    }
-                    Text(workoutViewModel.isGenerating ? "Generating..." : "Generate Workout")
-                        .font(.headline)
+                HStack(spacing: 8) {
+                    Image(systemName: "bolt.fill")
+                        .font(.system(size: 14))
+                    Text("GENERATE WORKOUT")
+                        .font(.system(size: 16, weight: .bold))
+                        .tracking(1.5)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(16)
-                .foregroundStyle(.white)
-                .background(workoutViewModel.selectedMuscles.isEmpty ? .gray : .blue)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .frame(height: 56)
+                .foregroundStyle(GymScanTheme.background)
+                .background(
+                    workoutViewModel.selectedMuscles.isEmpty
+                        ? AnyShapeStyle(Color.gray)
+                        : AnyShapeStyle(GymScanTheme.accentGradient)
+                )
+                .clipShape(Capsule())
             }
-            .disabled(workoutViewModel.selectedMuscles.isEmpty || workoutViewModel.isGenerating)
+            .disabled(workoutViewModel.selectedMuscles.isEmpty)
             .padding()
         }
-        .background(.regularMaterial)
+        .background(GymScanTheme.surface)
     }
 }

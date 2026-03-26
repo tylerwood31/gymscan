@@ -10,22 +10,37 @@ struct ExerciseCard: View {
             VStack(alignment: .leading, spacing: 0) {
                 // Main row
                 HStack(spacing: 12) {
-                    Text("\(exercise.order + 1)")
+                    Text("\(exercise.order)")
                         .font(.caption.bold())
                         .foregroundStyle(.white)
                         .frame(width: 28, height: 28)
-                        .background(.blue)
+                        .background(GymScanTheme.accent)
                         .clipShape(Circle())
 
-                    VStack(alignment: .leading, spacing: 2) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(exercise.name)
                             .font(.subheadline.bold())
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(GymScanTheme.textPrimary)
 
                         HStack(spacing: 8) {
                             Label(exercise.equipmentType.displayName, systemImage: exercise.equipmentType.iconName)
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(GymScanTheme.textSecondary)
+                        }
+
+                        // Muscle tags
+                        if !exercise.primaryMuscles.isEmpty {
+                            HStack(spacing: 4) {
+                                ForEach(exercise.primaryMuscles, id: \.self) { muscle in
+                                    Text(muscle.displayName)
+                                        .font(.system(size: 10, weight: .semibold))
+                                        .foregroundStyle(muscle.tagColor)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(muscle.tagColor.opacity(0.12))
+                                        .clipShape(Capsule())
+                                }
+                            }
                         }
                     }
 
@@ -34,22 +49,23 @@ struct ExerciseCard: View {
                     VStack(alignment: .trailing, spacing: 2) {
                         Text("\(exercise.sets) x \(exercise.reps)")
                             .font(.subheadline.bold())
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(GymScanTheme.accent)
 
                         Text("\(exercise.restSeconds)s rest")
                             .font(.caption)
-                            .foregroundStyle(.tertiary)
+                            .foregroundStyle(GymScanTheme.textSecondary.opacity(0.7))
                     }
 
                     Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .font(.caption)
-                        .foregroundStyle(.tertiary)
+                        .foregroundStyle(GymScanTheme.textSecondary)
                 }
                 .padding(14)
 
                 // Expanded details
                 if isExpanded {
                     Divider()
+                        .overlay(GymScanTheme.surfaceLight)
                         .padding(.horizontal, 14)
 
                     VStack(alignment: .leading, spacing: 8) {
@@ -60,11 +76,11 @@ struct ExerciseCard: View {
                         if let notes = exercise.notes, !notes.isEmpty {
                             HStack(alignment: .top, spacing: 8) {
                                 Image(systemName: "lightbulb.fill")
-                                    .foregroundStyle(.orange)
+                                    .foregroundStyle(GymScanTheme.accent)
                                     .font(.caption)
                                 Text(notes)
                                     .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(GymScanTheme.textSecondary)
                             }
                             .padding(.top, 4)
                         }
@@ -72,7 +88,7 @@ struct ExerciseCard: View {
                     .padding(14)
                 }
             }
-            .background(.regularMaterial)
+            .background(GymScanTheme.surface)
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .buttonStyle(.plain)
@@ -88,14 +104,15 @@ struct DetailRow: View {
         HStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.caption)
-                .foregroundStyle(.blue)
+                .foregroundStyle(GymScanTheme.accent)
                 .frame(width: 16)
             Text(label)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(GymScanTheme.textSecondary)
             Spacer()
             Text(value)
                 .font(.caption.bold())
+                .foregroundStyle(GymScanTheme.textPrimary)
         }
     }
 }

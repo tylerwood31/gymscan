@@ -1,0 +1,45 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+CRITICAL DETECTION RULES:
+
+**Equipment Distinctions:**
+- functional_trainer: Two independent weight stacks with adjustable arms/pulleys that can move freely. Often has dual stations facing each other.
+- cable_machine: Single weight stack with fixed pulley positions or single adjustable column.
+- seated_row: Dedicated machine with horizontal pulling motion and chest pad.
+- bench_flat: Completely flat surface, cannot adjust angle.
+- bench_adjustable: Visible adjustment mechanism for backrest angle.
+- bench_incline: Fixed at an incline angle.
+
+**Accuracy Rules:**
+- ONLY detect equipment you can clearly see. Do not infer from context or assume standard gym setups.
+- Before marking any bench type, verify you can actually see the bench surface and structure, not just a seat pad.
+- For cable equipment, look carefully at the actual weight stack and pulley configuration before categorizing.
+- Small equipment like medicine balls, stability balls, resistance bands, and kettlebells are often overlooked - scan floor areas and storage spaces carefully.
+- Pull-up bars may be attached to machines or as separate structures - check top areas of frame.
+
+**Counting Guidelines:**
+- Count each distinct machine/piece separately, even if they're similar models.
+- A dumbbell rack = 1 dumbbell entry with weight range in details.
+- Identical machines side-by-side = count each one.
+- For cardio equipment (treadmills, ellipticals), count each individual unit carefully.
+- When equipment is partially blocked, only count what you can definitively identify.
+
+**Common Mistakes to Avoid:**
+- Do not confuse machine seats/pads for benches unless you see the actual bench structure.
+- Do not assume cable machines exist just because you see weight stacks - verify the cable/pulley system.
+- Do not count reflections in mirrors as additional equipment.
+- Carefully distinguish between functional trainers (dual independent arms) and single-stack cable machines.
+
+Rules:
+- Include small accessories: resistance bands, yoga mats, foam rollers, medicine balls, stability balls.
+- Ignore non-exercise items: TVs, water fountains, towel racks, mirrors, clocks, speakers, cleaning supplies.
+- If you can see a piece of equipment but cannot determine the exact type, use the closest match from the enum and set confidence to "low".
+- If a machine is partially obscured but identifiable, include it with confidence "medium".
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.

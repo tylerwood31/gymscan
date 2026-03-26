@@ -1,0 +1,518 @@
+{
+  "prompt_version": "v2",
+  "timestamp": "2026-03-26T10:17:27.214139",
+  "num_images": 20,
+  "avg_precision": 0.9046,
+  "avg_recall": 0.8626,
+  "avg_f1": 0.8778,
+  "avg_count_accuracy": 0.9302,
+  "errors": 0,
+  "image_scores": [
+    {
+      "image": "gym_001_8bdc38f5d7.jpg",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.8889,
+      "count_accuracy": 0.9167,
+      "true_positives": [
+        "barbell",
+        "bench_flat",
+        "dumbbell",
+        "treadmill"
+      ],
+      "false_positives": [
+        "cable_machine"
+      ],
+      "false_negatives": [],
+      "count_errors": [
+        {
+          "type": "treadmill",
+          "predicted_count": 3,
+          "actual_count": 2
+        }
+      ]
+    },
+    {
+      "image": "gym_004_f35867b092.jpg",
+      "precision": 0.9167,
+      "recall": 0.9167,
+      "f1": 0.9167,
+      "count_accuracy": 0.9333,
+      "true_positives": [
+        "bench_adjustable",
+        "elliptical",
+        "rowing_machine",
+        "stability_ball",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": [
+        {
+          "type": "treadmill",
+          "predicted_count": 3,
+          "actual_count": 2
+        }
+      ]
+    },
+    {
+      "image": "gym_005_aa87c14bae.jpg",
+      "precision": 0.8333,
+      "recall": 0.8333,
+      "f1": 0.8333,
+      "count_accuracy": 0.8333,
+      "true_positives": [
+        "stability_ball",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": [
+        {
+          "type": "stability_ball",
+          "predicted_count": 2,
+          "actual_count": 3
+        }
+      ]
+    },
+    {
+      "image": "gym_006_9b8bb89fd7.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "cable_machine",
+        "dumbbell",
+        "elliptical"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_007_011bb8b662.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 0.9167,
+      "true_positives": [
+        "elliptical",
+        "stationary_bike",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": [
+        {
+          "type": "elliptical",
+          "predicted_count": 4,
+          "actual_count": 3
+        }
+      ]
+    },
+    {
+      "image": "gym_008_39460a052a.jpg",
+      "precision": 1.0,
+      "recall": 0.8571,
+      "f1": 0.9231,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "battle_ropes",
+        "bench_adjustable",
+        "cable_machine",
+        "dumbbell",
+        "functional_trainer",
+        "kettlebell"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "lat_pulldown"
+      ],
+      "count_errors": []
+    },
+    {
+      "image": "gym_011_393fa6b3fc.jpg",
+      "precision": 0.9167,
+      "recall": 0.9167,
+      "f1": 0.9167,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "bench_adjustable",
+        "dumbbell",
+        "foam_roller",
+        "kettlebell",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_012_d80a4ff296.jpg",
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "elliptical",
+        "rowing_machine",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "functional_trainer"
+      ],
+      "count_errors": []
+    },
+    {
+      "image": "gym_015_0c30ba48fa.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 0.9167,
+      "true_positives": [
+        "bench_adjustable",
+        "cable_machine",
+        "elliptical",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": [
+        {
+          "type": "treadmill",
+          "predicted_count": 3,
+          "actual_count": 2
+        }
+      ]
+    },
+    {
+      "image": "gym_018_3ed4197346.jpg",
+      "precision": 0.8333,
+      "recall": 0.625,
+      "f1": 0.7143,
+      "count_accuracy": 0.7333,
+      "true_positives": [
+        "dumbbell",
+        "kettlebell",
+        "medicine_ball",
+        "pull_up_bar",
+        "rowing_machine"
+      ],
+      "false_positives": [
+        "functional_trainer"
+      ],
+      "false_negatives": [
+        "foam_roller",
+        "resistance_bands",
+        "stability_ball"
+      ],
+      "count_errors": [
+        {
+          "type": "rowing_machine",
+          "predicted_count": 4,
+          "actual_count": 2
+        },
+        {
+          "type": "medicine_ball",
+          "predicted_count": 6,
+          "actual_count": 1
+        }
+      ]
+    },
+    {
+      "image": "gym_019_b0340633a2.jpg",
+      "precision": 0.6667,
+      "recall": 0.6667,
+      "f1": 0.6667,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "cable_machine",
+        "lat_pulldown"
+      ],
+      "false_positives": [
+        "leg_press"
+      ],
+      "false_negatives": [
+        "functional_trainer"
+      ],
+      "count_errors": []
+    },
+    {
+      "image": "gym_020_61050e0639.jpg",
+      "precision": 0.75,
+      "recall": 0.6667,
+      "f1": 0.7059,
+      "count_accuracy": 0.625,
+      "true_positives": [
+        "battle_ropes",
+        "functional_trainer",
+        "kettlebell",
+        "medicine_ball",
+        "pull_up_bar",
+        "resistance_bands"
+      ],
+      "false_positives": [
+        "bench_adjustable",
+        "trx_suspension"
+      ],
+      "false_negatives": [
+        "barbell",
+        "cable_machine",
+        "dumbbell"
+      ],
+      "count_errors": [
+        {
+          "type": "resistance_bands",
+          "predicted_count": 2,
+          "actual_count": 1
+        },
+        {
+          "type": "pull_up_bar",
+          "predicted_count": 3,
+          "actual_count": 2
+        },
+        {
+          "type": "functional_trainer",
+          "predicted_count": 3,
+          "actual_count": 1
+        },
+        {
+          "type": "kettlebell",
+          "predicted_count": 4,
+          "actual_count": 1
+        }
+      ]
+    },
+    {
+      "image": "gym_021_c982c70f98.jpg",
+      "precision": 0.8333,
+      "recall": 0.8333,
+      "f1": 0.8333,
+      "count_accuracy": 0.8,
+      "true_positives": [
+        "cable_machine",
+        "dumbbell",
+        "elliptical",
+        "functional_trainer",
+        "medicine_ball"
+      ],
+      "false_positives": [
+        "bench_adjustable"
+      ],
+      "false_negatives": [
+        "stability_ball"
+      ],
+      "count_errors": [
+        {
+          "type": "elliptical",
+          "predicted_count": 6,
+          "actual_count": 4
+        },
+        {
+          "type": "functional_trainer",
+          "predicted_count": 3,
+          "actual_count": 1
+        }
+      ]
+    },
+    {
+      "image": "gym_022_97859bc6a4.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "elliptical",
+        "stationary_bike",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_023_c6195b75f8.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_024_9d133b9e62.jpg",
+      "precision": 0.9167,
+      "recall": 0.6875,
+      "f1": 0.7857,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "bench_flat",
+        "dumbbell",
+        "kettlebell",
+        "medicine_ball",
+        "pull_up_bar"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "bench_adjustable",
+        "cable_machine"
+      ],
+      "count_errors": []
+    },
+    {
+      "image": "gym_025_155227493d.jpg",
+      "precision": 0.625,
+      "recall": 0.8333,
+      "f1": 0.7143,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "dumbbell",
+        "elliptical"
+      ],
+      "false_positives": [
+        "treadmill"
+      ],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_026_833ae05fcd.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "rowing_machine",
+        "spin_bike"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_027_dac3c1d82f.jpg",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "count_accuracy": 1.0,
+      "true_positives": [
+        "bench_adjustable",
+        "cable_machine",
+        "dumbbell",
+        "functional_trainer"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "count_errors": []
+    },
+    {
+      "image": "gym_028_e0bb8d495d.jpg",
+      "precision": 1.0,
+      "recall": 0.6667,
+      "f1": 0.8,
+      "count_accuracy": 0.9286,
+      "true_positives": [
+        "cable_machine",
+        "treadmill"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "functional_trainer"
+      ],
+      "count_errors": [
+        {
+          "type": "treadmill",
+          "predicted_count": 7,
+          "actual_count": 6
+        }
+      ]
+    }
+  ],
+  "worst_failures": [
+    {
+      "image": "gym_019_b0340633a2.jpg",
+      "f1": 0.6667,
+      "false_positives": [
+        "leg_press"
+      ],
+      "false_negatives": [
+        "functional_trainer"
+      ],
+      "count_errors": []
+    },
+    {
+      "image": "gym_020_61050e0639.jpg",
+      "f1": 0.7059,
+      "false_positives": [
+        "bench_adjustable",
+        "trx_suspension"
+      ],
+      "false_negatives": [
+        "barbell",
+        "cable_machine",
+        "dumbbell"
+      ],
+      "count_errors": [
+        {
+          "type": "resistance_bands",
+          "predicted_count": 2,
+          "actual_count": 1
+        },
+        {
+          "type": "pull_up_bar",
+          "predicted_count": 3,
+          "actual_count": 2
+        },
+        {
+          "type": "functional_trainer",
+          "predicted_count": 3,
+          "actual_count": 1
+        },
+        {
+          "type": "kettlebell",
+          "predicted_count": 4,
+          "actual_count": 1
+        }
+      ]
+    },
+    {
+      "image": "gym_018_3ed4197346.jpg",
+      "f1": 0.7143,
+      "false_positives": [
+        "functional_trainer"
+      ],
+      "false_negatives": [
+        "foam_roller",
+        "resistance_bands",
+        "stability_ball"
+      ],
+      "count_errors": [
+        {
+          "type": "rowing_machine",
+          "predicted_count": 4,
+          "actual_count": 2
+        },
+        {
+          "type": "medicine_ball",
+          "predicted_count": 6,
+          "actual_count": 1
+        }
+      ]
+    },
+    {
+      "image": "gym_025_155227493d.jpg",
+      "f1": 0.7143,
+      "false_positives": [
+        "treadmill"
+      ],
+      "false_negatives": [],
+      "count_errors": []
+    }
+  ]
+}

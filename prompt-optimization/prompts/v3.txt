@@ -1,0 +1,34 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+Critical Rules:
+- ONLY report equipment you can clearly see in THIS image. Do not assume equipment exists if it's not visible.
+- Before reporting any equipment, verify you can actually see it in the image, not just infer its presence.
+- Count each distinct piece carefully. Look at the entire image systematically before finalizing counts.
+
+Equipment Identification:
+- Functional trainer: Has two independent weight stacks with adjustable pulleys and separate cable arms on each side
+- Cable machine: Single weight stack with fixed pulley positions, or lat pulldown with overhead bar
+- Benches: Only classify as "bench_flat" if it's clearly non-adjustable and flat. Use "bench_adjustable" if you see adjustment mechanisms. Use "bench_incline" only for fixed incline benches.
+- Seated row: A dedicated machine with a horizontal pulling motion and back pad, not just a cable attachment
+- Small equipment: Carefully scan for medicine balls (weighted balls), stability balls (large exercise balls), kettlebells (bell-shaped weights), resistance bands, and foam rollers
+
+Systematic Approach:
+1. Scan the entire image methodically from left to right, top to bottom
+2. Look in corners and background areas for smaller equipment like medicine balls, stability balls, resistance bands
+3. Count cardio equipment (treadmills, ellipticals) one by one - don't estimate
+4. For weight equipment, distinguish between individual pieces vs. racks/sets
+5. Check if pull-up bars are mounted on walls, ceilings, or as part of other equipment
+
+Common Mistakes to Avoid:
+- Don't confuse partial views of equipment with different equipment types
+- Don't report ellipticals unless you can clearly see the distinctive oval pedal motion mechanism
+- Don't report rowing machines unless you can see the sliding seat and rowing handle/chain
+- Don't assume benches are adjustable unless you can see adjustment mechanisms
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.

@@ -131,16 +131,24 @@ class EvalResults:
         }
 
 
+def detect_media_type(data: bytes) -> str:
+    """Detect actual image format from magic bytes, not file extension."""
+    if data[:8] == b'\x89PNG\r\n\x1a\n':
+        return "image/png"
+    if data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+        return "image/webp"
+    if data[:3] == b'GIF':
+        return "image/gif"
+    if data[:2] == b'\xff\xd8':
+        return "image/jpeg"
+    return "image/jpeg"
+
+
 def encode_image(image_path: Path) -> tuple[str, str]:
     """Read and base64 encode an image file."""
     data = image_path.read_bytes()
     b64 = base64.standard_b64encode(data).decode("utf-8")
-    suffix = image_path.suffix.lower()
-    media_type_map = {
-        ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-        ".png": "image/png", ".gif": "image/gif", ".webp": "image/webp",
-    }
-    return b64, media_type_map.get(suffix, "image/jpeg")
+    return b64, detect_media_type(data)
 
 
 def call_vision_api(

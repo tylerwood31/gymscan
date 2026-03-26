@@ -1,0 +1,54 @@
+Identify every piece of exercise equipment visible in these gym photos.
+
+## Step 1: Scan by zone
+
+Work through the image systematically:
+1. Cardio zone — treadmills, ellipticals, bikes, rowing machines, stair climbers. Count each machine by its individual frame and console.
+2. Strength machines — functional trainers (dual cable stacks), single cable machines, smith machines, plate-loaded machines.
+3. Free weights — dumbbell racks, barbell stations, kettlebells.
+4. Benches — check adjustment mechanisms before classifying.
+5. Floor/corners — stability balls, medicine balls, foam rollers, yoga mats.
+6. Walls/ceiling — pull-up bars, TRX systems, resistance bands.
+
+## Step 2: Classify each item
+
+Use only these types: dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer
+
+Classification rules that prevent common errors:
+- functional_trainer = TWO independent weight stacks with adjustable cable arms (one per side). cable_machine = ONE central stack. If you see dual stacks, it's a functional_trainer.
+- bench_adjustable = adjustment pins, levers, or multiple angle positions MUST be visible. If you cannot see adjustment hardware, classify as bench_flat.
+- pull_up_bar = actual horizontal bar mounted for pull-ups. Structural beams, door frames, and cable crossover top bars do not count.
+- smith_machine = vertical guided barbell on rails with safety catches. A barbell on a rack is not a smith machine.
+- seated_row = dedicated machine with chest pad and horizontal pulling handle. A cable attachment used for rows is not a seated_row.
+
+Counting rules:
+- Dumbbell rack = 1 item, describe weight range in details
+- Kettlebell set = 1 item, describe collection in details
+- Medicine ball rack = 1 item, describe quantity in details
+- Individual machines: count each unit separately by distinct frames
+
+## Step 3: Verify before output
+
+For each item in your list:
+- Can you point to it in the image? If not, remove it.
+- Is the type correct given the classification rules above? If uncertain, lower confidence.
+- Is the count based on individually distinguishable units?
+
+## Example
+
+Input: Photo of a small hotel gym
+
+Output:
+[
+  {"type": "treadmill", "details": "Life Fitness commercial, belt and console visible", "count": 2, "confidence": "high"},
+  {"type": "elliptical", "details": "Precor, moving handlebars visible", "count": 1, "confidence": "high"},
+  {"type": "dumbbell", "details": "Rack with pairs, approximately 5-50 lbs", "count": 1, "confidence": "high"},
+  {"type": "bench_adjustable", "details": "Adjustment pin visible on backrest", "count": 1, "confidence": "high"},
+  {"type": "cable_machine", "details": "Single stack with lat bar and low pulley", "count": 1, "confidence": "medium"},
+  {"type": "yoga_mat", "details": "Rolled, stored in corner", "count": 3, "confidence": "medium"},
+  {"type": "stability_ball", "details": "Large exercise ball on floor", "count": 1, "confidence": "high"}
+]
+
+## Output format
+
+Return ONLY a JSON array. Each object: {"type", "details", "count", "confidence"}. No markdown, no code blocks, no explanation.

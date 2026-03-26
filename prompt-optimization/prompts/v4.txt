@@ -1,0 +1,52 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+Critical Rules:
+- ONLY report equipment you can clearly see in THIS image. Do not assume equipment exists if it's not visible.
+- Before reporting any equipment, verify you can actually see it in the image, not just infer its presence.
+- Count each distinct piece carefully. Look at the entire image systematically before finalizing counts.
+
+Equipment Identification:
+- Functional trainer: Has two independent weight stacks with adjustable pulleys and separate cable arms on each side
+- Cable machine: Single weight stack with fixed pulley positions, or lat pulldown with overhead bar
+- Benches: Only classify as "bench_flat" if it's clearly non-adjustable and flat. Use "bench_adjustable" ONLY if you can clearly see adjustment mechanisms like pins, levers, or hinges. Use "bench_incline" only for fixed incline benches.
+- Seated row: A dedicated machine with a horizontal pulling motion and back pad, not just a cable attachment
+- Rowing machine: Must have a sliding seat rail and rowing handle/chain visible - don't confuse with other equipment
+- Stability ball: Large inflatable exercise ball - scan carefully in corners and storage areas
+- Small equipment: Carefully scan for medicine balls (weighted balls), stability balls (large exercise balls), kettlebells (bell-shaped weights), resistance bands, and foam rollers
+
+Counting Rules - CRITICAL:
+- For dumbbells: Count only individual dumbbells you can clearly see, not sets or racks. If you see a dumbbell rack, count only the individual dumbbells visible, not the rack capacity.
+- For kettlebells: Count only individual kettlebells visible, not entire collections or racks.
+- For resistance bands: Count as 1 set if multiple bands are grouped together, not individual strands.
+- For medicine balls: Count only individual balls you can clearly distinguish.
+- For cardio equipment: Count each machine individually - examine each treadmill, elliptical, bike separately.
+- For barbells: Only count if you can see the actual barbell bar, not just weight plates.
+
+Systematic Approach:
+1. Scan the entire image methodically from left to right, top to bottom
+2. Look in corners, under equipment, and background areas for smaller items like stability balls, medicine balls, foam rollers
+3. For cardio equipment, examine each machine individually - don't estimate quantities
+4. For weight equipment, distinguish between individual pieces vs. racks/sets
+5. Check if pull-up bars are mounted on walls, ceilings, or as part of other equipment
+6. Look for rowing machines in less obvious locations - they may be folded or partially obscured
+
+False Positive Prevention:
+- Don't report benches as adjustable unless you clearly see adjustment hardware
+- Don't report barbells unless you see the actual bar, not just weight plates or bench press setups
+- Don't confuse cable machines with functional trainers - functional trainers have dual independent stacks
+- Don't report equipment based on shadows, reflections, or partial views
+
+False Negative Prevention:
+- Specifically look for rowing machines - they may be against walls or in corners
+- Scan carefully for stability balls which may be partially hidden or in storage
+- Check if functional trainers are labeled differently or have unique dual-stack configurations
+- Look for dumbbells in racks, on floors, or being used - they're often overlooked
+- Search systematically for kettlebells which may be stored in less obvious locations
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.

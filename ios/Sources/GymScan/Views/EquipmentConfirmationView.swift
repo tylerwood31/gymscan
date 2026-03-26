@@ -23,11 +23,14 @@ struct EquipmentConfirmationView: View {
                 }
                 .padding()
             }
+            .background(GymScanTheme.background)
 
             continueButton
         }
+        .background(GymScanTheme.background)
         .navigationTitle("Equipment Found")
         .navigationBarTitleDisplayMode(.large)
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .sheet(isPresented: $showAddSheet) {
             AddEquipmentSheet(scanViewModel: scanViewModel)
         }
@@ -37,14 +40,15 @@ struct EquipmentConfirmationView: View {
         VStack(spacing: 8) {
             Image(systemName: "checkmark.circle.fill")
                 .font(.system(size: 44))
-                .foregroundStyle(.green)
+                .foregroundStyle(GymScanTheme.accentSecondary)
 
             Text("\(scanViewModel.detectedEquipment.count) items detected")
                 .font(.title3.bold())
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             Text("Toggle off items that aren't available, or add any we missed.")
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(GymScanTheme.textSecondary)
                 .multilineTextAlignment(.center)
         }
         .padding(.vertical, 8)
@@ -69,10 +73,10 @@ struct EquipmentConfirmationView: View {
                 Text("Add Equipment")
             }
             .font(.subheadline.bold())
-            .foregroundStyle(.blue)
+            .foregroundStyle(GymScanTheme.accentSecondary)
             .padding(12)
             .frame(maxWidth: .infinity)
-            .background(.blue.opacity(0.1))
+            .background(GymScanTheme.accentSecondary.opacity(0.1))
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
@@ -80,6 +84,7 @@ struct EquipmentConfirmationView: View {
     private var continueButton: some View {
         VStack(spacing: 0) {
             Divider()
+                .overlay(GymScanTheme.surfaceLight)
             Button {
                 Task {
                     isConfirming = true
@@ -91,21 +96,26 @@ struct EquipmentConfirmationView: View {
                 HStack {
                     if isConfirming {
                         ProgressView()
-                            .tint(.white)
+                            .tint(GymScanTheme.background)
                     }
-                    Text("Continue with \(enabledCount) items")
-                        .font(.headline)
+                    Text("CONTINUE WITH \(enabledCount) ITEMS")
+                        .font(.system(size: 16, weight: .bold))
+                        .tracking(1.5)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(16)
-                .foregroundStyle(.white)
-                .background(enabledCount > 0 ? .blue : .gray)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .frame(height: 56)
+                .foregroundStyle(GymScanTheme.background)
+                .background(
+                    enabledCount > 0
+                        ? AnyShapeStyle(GymScanTheme.accentGradient)
+                        : AnyShapeStyle(Color.gray)
+                )
+                .clipShape(Capsule())
             }
             .disabled(enabledCount == 0 || isConfirming)
             .padding()
         }
-        .background(.regularMaterial)
+        .background(GymScanTheme.surface)
     }
 }
 
@@ -129,11 +139,15 @@ struct AddEquipmentSheet: View {
 
                 TextField("Details (e.g., 5-50 lbs)", text: $details)
             }
+            .scrollContentBackground(.hidden)
+            .background(GymScanTheme.background)
             .navigationTitle("Add Equipment")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
+                        .foregroundStyle(GymScanTheme.textSecondary)
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
@@ -147,6 +161,7 @@ struct AddEquipmentSheet: View {
                         scanViewModel.addEquipment(equipment)
                         dismiss()
                     }
+                    .foregroundStyle(GymScanTheme.accent)
                 }
             }
         }

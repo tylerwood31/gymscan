@@ -56,11 +56,21 @@ struct Exercise: Codable, Identifiable, Equatable {
     var reps: String
     var restSeconds: Int
     var notes: String?
+    var primaryMusclesRaw: [String]
     var order: Int
 
     var equipmentType: EquipmentType {
         get { EquipmentType(rawValue: equipmentTypeRaw) ?? .other }
         set { equipmentTypeRaw = newValue.rawValue }
+    }
+
+    var primaryMuscles: [MuscleGroup] {
+        primaryMusclesRaw.compactMap { MuscleGroup(rawValue: $0) }
+    }
+
+    /// Estimated time for this exercise in seconds (work + rest for all sets)
+    var estimatedSeconds: Int {
+        sets * (45 + restSeconds)
     }
 
     init(
@@ -71,6 +81,7 @@ struct Exercise: Codable, Identifiable, Equatable {
         reps: String,
         restSeconds: Int,
         notes: String? = nil,
+        primaryMuscles: [String] = [],
         order: Int
     ) {
         self.id = id
@@ -80,6 +91,7 @@ struct Exercise: Codable, Identifiable, Equatable {
         self.reps = reps
         self.restSeconds = restSeconds
         self.notes = notes
+        self.primaryMusclesRaw = primaryMuscles
         self.order = order
     }
 
@@ -87,5 +99,19 @@ struct Exercise: Codable, Identifiable, Equatable {
         case id, name, sets, reps, notes, order
         case equipmentTypeRaw = "equipment_type"
         case restSeconds = "rest_seconds"
+        case primaryMusclesRaw = "primary_muscles"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = (try? container.decode(UUID.self, forKey: .id)) ?? UUID()
+        name = try container.decode(String.self, forKey: .name)
+        equipmentTypeRaw = try container.decode(String.self, forKey: .equipmentTypeRaw)
+        sets = try container.decode(Int.self, forKey: .sets)
+        reps = try container.decode(String.self, forKey: .reps)
+        restSeconds = try container.decode(Int.self, forKey: .restSeconds)
+        notes = try container.decodeIfPresent(String.self, forKey: .notes)
+        primaryMusclesRaw = (try? container.decode([String].self, forKey: .primaryMusclesRaw)) ?? []
+        order = try container.decode(Int.self, forKey: .order)
     }
 }

@@ -1,0 +1,103 @@
+[
+  {
+    "round": 0,
+    "version": "v1",
+    "f1": 0.8812,
+    "precision": 0.9083,
+    "recall": 0.8651,
+    "action": "baseline (20 images)",
+    "timestamp": "2026-03-26T10:17:08"
+  },
+  {
+    "round": 1,
+    "version": "v2",
+    "f1": 0.8778,
+    "precision": 0.9046,
+    "recall": 0.8626,
+    "delta": -0.0035,
+    "improved": false,
+    "action": "rejected",
+    "timestamp": "2026-03-26T10:19:22"
+  },
+  {
+    "round": 2,
+    "version": "v3",
+    "f1": 0.8814,
+    "precision": 0.9232,
+    "recall": 0.8554,
+    "delta": 0.0002,
+    "improved": true,
+    "action": "accepted",
+    "timestamp": "2026-03-26T10:21:28"
+  },
+  {
+    "round": 3,
+    "version": "v4",
+    "f1": 0.8088,
+    "precision": 0.9072,
+    "recall": 0.7807,
+    "delta": -0.0727,
+    "improved": false,
+    "action": "rejected",
+    "timestamp": "2026-03-26T10:23:39"
+  },
+  {
+    "round": 4,
+    "version": "v5",
+    "f1": 0.8398,
+    "precision": 0.8738,
+    "recall": 0.8224,
+    "delta": -0.0416,
+    "improved": false,
+    "action": "rejected",
+    "timestamp": "2026-03-26T10:28:10"
+  },
+  {
+    "round": 5,
+    "version": "v6",
+    "f1": 0.8278,
+    "precision": 0.8800,
+    "recall": 0.7922,
+    "delta": -0.0536,
+    "improved": false,
+    "action": "rejected",
+    "timestamp": "2026-03-26T10:30:34"
+  },
+  {
+    "note": "--- Full 80-image evaluations below ---"
+  },
+  {
+    "round": "full-baseline",
+    "version": "v1",
+    "f1": 0.8518,
+    "precision": 0.8694,
+    "recall": 0.8544,
+    "count_accuracy": 0.9154,
+    "images": 80,
+    "action": "baseline (80 images)",
+    "timestamp": "2026-03-26T10:39:59"
+  },
+  {
+    "round": "full-eval",
+    "version": "v7",
+    "f1": 0.8502,
+    "precision": 0.8472,
+    "recall": 0.8724,
+    "count_accuracy": 0.9258,
+    "images": 80,
+    "action": "manual prompt, no improvement",
+    "timestamp": "2026-03-26T10:48:02"
+  },
+  {
+    "round": "full-eval",
+    "version": "v8",
+    "f1": 0.8800,
+    "precision": 0.9301,
+    "recall": 0.8518,
+    "count_accuracy": 0.8993,
+    "images": 80,
+    "improved": true,
+    "action": "BEST - auto-refined from v1 80-image failure analysis",
+    "timestamp": "2026-03-26T10:56:51"
+  }
+]

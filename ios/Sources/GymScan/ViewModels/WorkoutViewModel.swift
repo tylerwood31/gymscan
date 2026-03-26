@@ -10,6 +10,7 @@ final class WorkoutViewModel {
     var currentWorkout: Workout?
     var exercises: [Exercise] = []
     var error: String?
+    var isDemo: Bool = false
 
     // Session tracker state
     var currentExerciseIndex: Int = 0
@@ -62,6 +63,7 @@ final class WorkoutViewModel {
                     reps: item.reps,
                     restSeconds: item.restSeconds,
                     notes: item.notes,
+                    primaryMuscles: item.primaryMuscles,
                     order: item.order
                 )
             }
@@ -74,8 +76,11 @@ final class WorkoutViewModel {
                 exercises: exerciseList
             )
 
-            modelContext.insert(workout)
-            try modelContext.save()
+            // Don't persist demo workouts to SwiftData
+            if !isDemo {
+                modelContext.insert(workout)
+                try modelContext.save()
+            }
 
             currentWorkout = workout
             exercises = exerciseList

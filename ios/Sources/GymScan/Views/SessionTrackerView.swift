@@ -3,6 +3,7 @@ import SwiftUI
 struct SessionTrackerView: View {
     @Bindable var workoutViewModel: WorkoutViewModel
     @Binding var path: NavigationPath
+    var onComplete: (() -> Void)? = nil
     @Environment(\.modelContext) private var modelContext
     @State private var showCompleteAlert = false
 
@@ -24,6 +25,7 @@ struct SessionTrackerView: View {
                     }
                     .padding()
                 }
+                .background(GymScanTheme.background)
 
                 // Rest timer overlay
                 if workoutViewModel.isResting {
@@ -33,16 +35,18 @@ struct SessionTrackerView: View {
                 bottomControls
             }
         }
+        .background(GymScanTheme.background)
         .navigationTitle("Workout")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     showCompleteAlert = true
                 } label: {
                     Text("End")
-                        .foregroundStyle(.red)
+                        .foregroundStyle(GymScanTheme.destructive)
                 }
             }
         }
@@ -50,7 +54,11 @@ struct SessionTrackerView: View {
             Button("End Workout", role: .destructive) {
                 Task {
                     await workoutViewModel.completeWorkout(modelContext: modelContext)
-                    path.removeLast(path.count)
+                    if let onComplete {
+                        onComplete()
+                    } else {
+                        path.removeLast(path.count)
+                    }
                 }
             }
             Button("Cancel", role: .cancel) {}
@@ -64,11 +72,11 @@ struct SessionTrackerView: View {
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 3)
-                        .fill(.gray.opacity(0.2))
+                        .fill(GymScanTheme.surfaceLight)
                         .frame(height: 6)
 
                     RoundedRectangle(cornerRadius: 3)
-                        .fill(.green)
+                        .fill(GymScanTheme.accent)
                         .frame(
                             width: geometry.size.width * progressValue,
                             height: 6
@@ -81,15 +89,16 @@ struct SessionTrackerView: View {
             HStack {
                 Text("Exercise \(workoutViewModel.currentExerciseIndex + 1) of \(workoutViewModel.totalExercises)")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(GymScanTheme.textSecondary)
                 Spacer()
                 Text("\(workoutViewModel.completedExerciseCount) completed")
                     .font(.caption)
-                    .foregroundStyle(.green)
+                    .foregroundStyle(GymScanTheme.accentSecondary)
             }
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
+        .background(GymScanTheme.background)
     }
 
     private var progressValue: Double {
@@ -101,10 +110,12 @@ struct SessionTrackerView: View {
         VStack(spacing: 8) {
             Image(systemName: exercise.equipmentType.iconName)
                 .font(.system(size: 36))
-                .foregroundStyle(.blue)
+                .foregroundStyle(GymScanTheme.accent)
 
             Text(exercise.name)
                 .font(.title2.bold())
+                .tracking(-0.5)
+                .foregroundStyle(GymScanTheme.textPrimary)
                 .multilineTextAlignment(.center)
 
             HStack(spacing: 16) {
@@ -113,13 +124,14 @@ struct SessionTrackerView: View {
                 Label("\(exercise.restSeconds)s rest", systemImage: "timer")
             }
             .font(.subheadline)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(GymScanTheme.textSecondary)
 
             Text(exercise.equipmentType.displayName)
                 .font(.caption)
+                .foregroundStyle(GymScanTheme.accent)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
-                .background(.blue.opacity(0.1))
+                .background(GymScanTheme.accent.opacity(0.15))
                 .clipShape(Capsule())
         }
     }
@@ -128,6 +140,7 @@ struct SessionTrackerView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Sets")
                 .font(.headline)
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: min(exercise.sets, 4)), spacing: 12) {
                 ForEach(0..<exercise.sets, id: \.self) { setIndex in
@@ -140,25 +153,25 @@ struct SessionTrackerView: View {
                             if workoutViewModel.isSetCompleted(exercise: exercise, setIndex: setIndex) {
                                 Image(systemName: "checkmark.circle.fill")
                                     .font(.system(size: 32))
-                                    .foregroundStyle(.green)
+                                    .foregroundStyle(GymScanTheme.accentSecondary)
                             } else {
                                 Image(systemName: "circle")
                                     .font(.system(size: 32))
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(GymScanTheme.textSecondary)
                             }
                             Text("Set \(setIndex + 1)")
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(GymScanTheme.textSecondary)
                             Text(exercise.reps)
                                 .font(.caption2)
-                                .foregroundStyle(.tertiary)
+                                .foregroundStyle(GymScanTheme.textSecondary.opacity(0.7))
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(
                             workoutViewModel.isSetCompleted(exercise: exercise, setIndex: setIndex)
-                                ? Color.green.opacity(0.1)
-                                : Color.gray.opacity(0.05)
+                                ? GymScanTheme.accentSecondary.opacity(0.1)
+                                : GymScanTheme.surface
                         )
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
@@ -172,14 +185,14 @@ struct SessionTrackerView: View {
         VStack(alignment: .leading, spacing: 8) {
             Label("Coaching Notes", systemImage: "lightbulb.fill")
                 .font(.headline)
-                .foregroundStyle(.orange)
+                .foregroundStyle(GymScanTheme.accent)
 
             Text(notes)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(GymScanTheme.textSecondary)
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(.orange.opacity(0.05))
+                .background(GymScanTheme.accent.opacity(0.08))
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
@@ -190,46 +203,49 @@ struct SessionTrackerView: View {
             VStack(spacing: 12) {
                 Text("Rest")
                     .font(.headline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(GymScanTheme.textSecondary)
 
                 Text("\(workoutViewModel.restTimeRemaining)")
                     .font(.system(size: 64, weight: .bold, design: .rounded))
+                    .foregroundStyle(GymScanTheme.accent)
                     .monospacedDigit()
                     .contentTransition(.numericText())
                     .animation(.easeInOut(duration: 0.2), value: workoutViewModel.restTimeRemaining)
 
                 Text("seconds")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(GymScanTheme.textSecondary)
 
                 Button("Skip Rest") {
                     workoutViewModel.cancelRest()
                 }
                 .font(.subheadline.bold())
-                .foregroundStyle(.blue)
+                .foregroundStyle(GymScanTheme.textSecondary)
             }
             .padding(32)
             .frame(maxWidth: .infinity)
-            .background(.ultraThinMaterial)
+            .background(GymScanTheme.surface.opacity(0.95))
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding()
             Spacer()
         }
-        .background(.black.opacity(0.3))
+        .background(GymScanTheme.background.opacity(0.7))
         .transition(.opacity)
     }
 
     private var bottomControls: some View {
         VStack(spacing: 0) {
             Divider()
+                .overlay(GymScanTheme.surfaceLight)
             HStack(spacing: 16) {
                 Button {
                     workoutViewModel.moveToPreviousExercise()
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.title3.bold())
+                        .foregroundStyle(GymScanTheme.textPrimary)
                         .frame(width: 44, height: 44)
-                        .background(.gray.opacity(0.1))
+                        .background(GymScanTheme.surfaceLight)
                         .clipShape(Circle())
                 }
                 .disabled(workoutViewModel.currentExerciseIndex == 0)
@@ -239,22 +255,24 @@ struct SessionTrackerView: View {
                 Button {
                     workoutViewModel.moveToNextExercise()
                 } label: {
-                    HStack {
-                        Text("Next Exercise")
-                            .font(.subheadline.bold())
+                    HStack(spacing: 6) {
+                        Text("NEXT")
+                            .font(.system(size: 14, weight: .bold))
+                            .tracking(1)
                         Image(systemName: "chevron.right")
+                            .font(.system(size: 12, weight: .bold))
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
-                    .foregroundStyle(.white)
-                    .background(.blue)
+                    .padding(.horizontal, 24)
+                    .frame(height: 48)
+                    .foregroundStyle(GymScanTheme.background)
+                    .background(GymScanTheme.accentGradient)
                     .clipShape(Capsule())
                 }
                 .disabled(workoutViewModel.currentExerciseIndex >= workoutViewModel.totalExercises - 1)
             }
             .padding()
         }
-        .background(.regularMaterial)
+        .background(GymScanTheme.surface)
     }
 
     private var completionView: some View {
@@ -263,33 +281,41 @@ struct SessionTrackerView: View {
 
             Image(systemName: "trophy.fill")
                 .font(.system(size: 64))
-                .foregroundStyle(.yellow)
+                .foregroundStyle(GymScanTheme.accent)
 
             Text("Workout Complete!")
                 .font(.title.bold())
+                .tracking(-0.5)
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             Text("\(workoutViewModel.completedExerciseCount) of \(workoutViewModel.totalExercises) exercises completed")
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(GymScanTheme.textSecondary)
 
             Button {
                 Task {
                     await workoutViewModel.completeWorkout(modelContext: modelContext)
-                    path.removeLast(path.count)
+                    if let onComplete {
+                        onComplete()
+                    } else {
+                        path.removeLast(path.count)
+                    }
                 }
             } label: {
-                Text("Done")
-                    .font(.headline)
+                Text("DONE")
+                    .font(.system(size: 16, weight: .bold))
+                    .tracking(1.5)
                     .frame(maxWidth: .infinity)
-                    .padding(16)
-                    .foregroundStyle(.white)
-                    .background(.green)
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                    .frame(height: 56)
+                    .foregroundStyle(GymScanTheme.background)
+                    .background(GymScanTheme.accentGradient)
+                    .clipShape(Capsule())
             }
             .padding(.horizontal, 40)
 
             Spacer()
         }
         .padding()
+        .background(GymScanTheme.background)
     }
 }

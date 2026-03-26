@@ -141,6 +141,7 @@ class Exercise(BaseModel):
     reps: str = Field(..., description='Rep count or range, e.g. "10-12" or "to failure"')
     rest_seconds: int = Field(..., ge=0, le=300)
     notes: str = ""
+    primary_muscles: list[str] = Field(default_factory=list, description="Target muscle groups for this exercise")
     order: int = Field(..., ge=1)
 
 

@@ -1,46 +1,111 @@
-You are an expert strength and conditioning coach. Generate a structured workout plan using ONLY the available equipment listed below.
+Generate a workout plan for the equipment, muscles, and time below.
 
-## Available Equipment
+## Input
+
+Equipment available:
 {equipment_list}
 
-## User Preferences
-- Target muscle groups: {target_muscles}
-- Available time: {duration_minutes} minutes
+Target muscles: {target_muscles}
+Duration: {duration_minutes} minutes
 
-## Programming Rules
+## Step 1: Calculate time budget
 
-1. **Exercise selection**: Only prescribe exercises that can be performed with the listed equipment. Never assume equipment that isn't on the list.
-2. **Compound movements first**: Start with multi-joint compound exercises (squats, presses, rows, deadlifts) before isolation work.
-3. **Volume for time**: Fit the workout within the time constraint. Budget approximately:
-   - 2-3 minutes per working set (including rest)
-   - 5 minutes for warm-up
-   - Fewer exercises with more sets for shorter sessions
-   - More exercise variety for longer sessions
-4. **Rep ranges by goal**:
-   - Strength: 3-6 reps, 90-180s rest
-   - Hypertrophy: 8-12 reps, 60-90s rest
-   - Endurance/metabolic: 12-20 reps, 30-45s rest
-   Default to hypertrophy ranges unless the user specifies otherwise.
-5. **Rest periods**: Scale rest with exercise intensity. Heavy compounds get longer rest (90-120s). Isolation and lighter work gets shorter rest (45-60s).
-6. **Balanced programming**: If targeting multiple muscle groups, distribute volume roughly evenly. Don't put 6 chest exercises and 1 triceps exercise.
-7. **Practical coaching notes**: Include brief, actionable cues. Examples: "control the negative for 2-3 seconds", "drive through your heels", "squeeze at the top". Keep notes under 15 words.
-8. **Hotel gym awareness**: If equipment is limited (e.g., only light dumbbells), bias toward higher reps, slower tempos, and pauses to increase difficulty. Mention this in the notes.
+working_minutes = {duration_minutes} - 3 (warmup)
+Each set costs: 45s (performing) + rest_seconds
+Target total sets: working_minutes * 60 / average_set_cost
 
-## Output Format
+Reference:
+- 15 min → 10-12 total sets across 3-4 exercises
+- 30 min → 18-22 total sets across 5-6 exercises
+- 45 min → 28-32 total sets across 7-9 exercises
+- 60 min → 36-42 total sets across 9-12 exercises
 
-Return a JSON object with this exact structure:
+"full_body" = chest, back, shoulders, legs, biceps, triceps, core — at least 1 exercise per major group.
+
+## Step 2: Select exercises
+
+Constraints:
+- Only use equipment from the list above. Never assume unlisted equipment.
+- Compound movements first (squat, press, row, deadlift), then isolation.
+- No two exercises for the same muscle with the same movement pattern. Vary angle, grip, or equipment.
+- If equipment is limited (e.g., light dumbbells only), use higher reps (15-20), 3-second negatives, and pauses.
+
+## Step 3: Assign volume
+
+- Hypertrophy default: 8-12 reps, 60-90s rest
+- Heavy compounds: 6-8 reps, 90-120s rest
+- Light isolation: 12-15 reps, 45-60s rest
+- Distribute volume evenly across target muscles
+
+## Step 4: Verify time
+
+Add up: SUM(sets * (45 + rest_seconds)) / 60
+If this is more than 8 minutes under the requested duration, add exercises.
+If this is more than 5 minutes over, reduce sets on isolation work.
+
+## Example
+
+Input: dumbbells (5-50 lbs), bench_adjustable, cable_machine | chest, triceps | 30 min
+
+Output:
 {
   "exercises": [
     {
-      "name": "Exercise Name",
-      "equipment_type": "equipment_enum_value",
+      "name": "Dumbbell Bench Press",
+      "equipment_type": "dumbbell",
+      "sets": 4,
+      "reps": "8-10",
+      "rest_seconds": 90,
+      "notes": "Pinch shoulder blades, control 2s descent",
+      "primary_muscles": ["chest", "triceps"],
+      "order": 1
+    },
+    {
+      "name": "Incline Dumbbell Press",
+      "equipment_type": "dumbbell",
+      "sets": 3,
+      "reps": "10-12",
+      "rest_seconds": 75,
+      "notes": "30-degree incline, full stretch at bottom",
+      "primary_muscles": ["chest", "shoulders"],
+      "order": 2
+    },
+    {
+      "name": "Cable Fly",
+      "equipment_type": "cable_machine",
+      "sets": 3,
+      "reps": "12-15",
+      "rest_seconds": 60,
+      "notes": "Slight elbow bend, squeeze 1s at peak",
+      "primary_muscles": ["chest"],
+      "order": 3
+    },
+    {
+      "name": "Cable Tricep Pushdown",
+      "equipment_type": "cable_machine",
+      "sets": 3,
+      "reps": "12-15",
+      "rest_seconds": 60,
+      "notes": "Elbows pinned, full lockout at bottom",
+      "primary_muscles": ["triceps"],
+      "order": 4
+    },
+    {
+      "name": "Overhead Dumbbell Tricep Extension",
+      "equipment_type": "dumbbell",
       "sets": 3,
       "reps": "10-12",
       "rest_seconds": 60,
-      "notes": "Brief coaching cue",
-      "order": 1
+      "notes": "Both hands, keep elbows close to head",
+      "primary_muscles": ["triceps"],
+      "order": 5
     }
   ]
 }
 
-Return ONLY the JSON object. No commentary, no warm-up/cooldown text, no introductions.
+Time check: (4*135 + 3*120 + 3*105 + 3*105 + 3*105) = 540+360+315+315+315 = 1845s = 30.75 min + 3 min warmup = ~34 min ✓
+
+## Output
+
+Return ONLY a JSON object with the structure shown in the example. No text before or after.
+primary_muscles values: chest, back, shoulders, biceps, triceps, legs, core

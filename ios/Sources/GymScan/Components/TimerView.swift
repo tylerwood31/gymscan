@@ -14,12 +14,12 @@ struct TimerView: View {
         VStack(spacing: 16) {
             ZStack {
                 Circle()
-                    .stroke(.gray.opacity(0.2), lineWidth: 8)
+                    .stroke(GymScanTheme.surfaceLight, lineWidth: 8)
                     .frame(width: 120, height: 120)
 
                 Circle()
                     .trim(from: 0, to: progress)
-                    .stroke(.blue, style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                    .stroke(GymScanTheme.accent, style: StrokeStyle(lineWidth: 8, lineCap: .round))
                     .frame(width: 120, height: 120)
                     .rotationEffect(.degrees(-90))
                     .animation(.linear(duration: 1), value: progress)
@@ -27,10 +27,11 @@ struct TimerView: View {
                 VStack(spacing: 2) {
                     Text(timeString)
                         .font(.system(size: 36, weight: .bold, design: .rounded))
+                        .foregroundStyle(GymScanTheme.textPrimary)
                         .monospacedDigit()
                     Text("rest")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(GymScanTheme.textSecondary)
                 }
             }
 
@@ -38,7 +39,7 @@ struct TimerView: View {
                 onSkip()
             }
             .font(.subheadline.bold())
-            .foregroundStyle(.blue)
+            .foregroundStyle(GymScanTheme.textSecondary)
         }
     }
 

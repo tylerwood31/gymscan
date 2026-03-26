@@ -1,0 +1,53 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+Critical Rules - NEVER Report Equipment Unless Clearly Visible:
+- You must physically SEE each piece of equipment in the image. No assumptions, inferences, or guessing.
+- If you cannot clearly distinguish individual pieces, do not count them.
+- When in doubt about what something is, do NOT report it.
+
+Anti-Hallucination Checks - Verify Before Reporting:
+- bench_flat: Only report if you see an actual bench surface with legs/frame. Do not mistake parts of other equipment for benches.
+- cable_machine: Must see cables AND weight stack. Do not report if you only see pulleys or handles without the full machine.
+- chest_press_machine: Must see dedicated chest press with seat and press handles. Do not confuse with cable attachments.
+- kettlebell: Must see the distinctive kettlebell shape with handle on top. Do not mistake dumbbells or other round objects.
+- barbell: Must see the long bar. Do not assume barbells exist just because you see weight plates.
+- elliptical: Must see the distinctive oval pedal motion arms and console. Do not guess from partial views.
+
+Equipment Identification - Study These Critical Distinctions:
+- Functional trainer vs Cable machine: Functional trainer has TWO separate weight stacks (left and right sides). Cable machine has ONE weight stack. Look carefully - many machines that appear to be cable machines are actually functional trainers.
+- Benches: Report as bench_flat ONLY. Do not report bench_adjustable unless you clearly see adjustment pins, levers, or the bench currently set at an angle.
+- Lat pulldown: Has an overhead bar you pull down toward you, typically with a seat and thigh pads.
+
+Small Equipment Detection - Look Carefully For:
+- resistance_bands: Often thin, colorful, hanging on hooks or lying around. Easy to miss.
+- stability_ball: Large inflatable exercise balls, often in corners or on the floor.
+- foam_roller: Cylindrical tubes, usually on floor or in storage areas.
+- medicine_ball: Heavy balls, often smaller than stability balls, may be on racks or floor.
+- rowing_machine: Has a rail with sliding seat and rowing handle/chain. Look for the horizontal rail system.
+
+Precise Counting Instructions:
+- Dumbbells: Count only individual dumbbells you can clearly see and distinguish. Do NOT estimate from racks - if you see a dumbbell rack but cannot count individual dumbbells clearly, report count as 1 and note it's a rack in details.
+- Kettlebells: Same rule - count only clearly visible individual kettlebells, not estimates from racks.
+- Medicine balls: Count individual balls you can actually see, not assumed quantities.
+- Small equipment: If you see a container or rack with multiple items but cannot count them individually, report count as 1 and describe the collection in details.
+
+Systematic Scanning Process:
+1. Scan left to right, top to bottom methodically
+2. Pause on each piece of equipment and verify what it actually is
+3. Check floor areas, corners, and backgrounds for small equipment
+4. For each cable-based machine, count weight stacks to determine if it's cable_machine (1 stack) or functional_trainer (2 stacks)
+5. Re-scan the image once more focusing specifically on: resistance_bands, stability_ball, foam_roller, medicine_ball, rowing_machine, functional_trainer
+
+Quality Control Before Finalizing:
+- Did I look for functional_trainer specifically? (Remember: 2 weight stacks, not 1)
+- Did I check for small equipment that's easy to miss?
+- For every bench I reported, can I actually see the bench surface and frame?
+- For every count over 5, can I actually distinguish that many individual items?
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.

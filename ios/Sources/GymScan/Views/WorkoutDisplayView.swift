@@ -28,11 +28,28 @@ struct WorkoutDisplayView: View {
                 }
                 .padding()
             }
+            .background(GymScanTheme.background)
 
             startButton
         }
+        .background(GymScanTheme.background)
         .navigationTitle("Your Workout")
         .navigationBarTitleDisplayMode(.large)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+
+    private var muscleGroupDisplay: String {
+        guard let workout = workoutViewModel.currentWorkout else { return "0" }
+        let muscles = workout.targetMuscles
+        if muscles.contains(.fullBody) {
+            return "Full Body"
+        }
+        return muscles.map(\.displayName).joined(separator: ", ")
+    }
+
+    private var estimatedMinutes: Int {
+        let totalSeconds = workoutViewModel.exercises.reduce(0) { $0 + $1.estimatedSeconds }
+        return max(1, (totalSeconds + 180) / 60) // +3 min warmup
     }
 
     private var summaryHeader: some View {
@@ -44,13 +61,13 @@ struct WorkoutDisplayView: View {
             )
             StatBadge(
                 icon: "clock",
-                value: "\(workoutViewModel.currentWorkout?.durationMinutes ?? 30)",
+                value: "~\(estimatedMinutes)",
                 label: "Minutes"
             )
             StatBadge(
                 icon: "flame",
-                value: "\(workoutViewModel.currentWorkout?.targetMuscles.count ?? 0)",
-                label: "Muscle Groups"
+                value: muscleGroupDisplay,
+                label: "Muscles"
             )
         }
         .padding(.vertical, 8)
@@ -59,24 +76,27 @@ struct WorkoutDisplayView: View {
     private var startButton: some View {
         VStack(spacing: 0) {
             Divider()
+                .overlay(GymScanTheme.surfaceLight)
             Button {
                 workoutViewModel.startWorkout()
                 path.append(ScanFlowStep.session)
             } label: {
-                HStack {
+                HStack(spacing: 8) {
                     Image(systemName: "play.fill")
-                    Text("Start Workout")
-                        .font(.headline)
+                        .font(.system(size: 14))
+                    Text("START WORKOUT")
+                        .font(.system(size: 16, weight: .bold))
+                        .tracking(1.5)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(16)
-                .foregroundStyle(.white)
-                .background(.green)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .frame(height: 56)
+                .foregroundStyle(GymScanTheme.background)
+                .background(GymScanTheme.accentGradient)
+                .clipShape(Capsule())
             }
             .padding()
         }
-        .background(.regularMaterial)
+        .background(GymScanTheme.surface)
     }
 }
 
@@ -89,16 +109,17 @@ struct StatBadge: View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.title3)
-                .foregroundStyle(.blue)
+                .foregroundStyle(GymScanTheme.accent)
             Text(value)
                 .font(.title2.bold())
+                .foregroundStyle(GymScanTheme.textPrimary)
             Text(label)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(GymScanTheme.textSecondary)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)
-        .background(.blue.opacity(0.05))
+        .background(GymScanTheme.surface)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

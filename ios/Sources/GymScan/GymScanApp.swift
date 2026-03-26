@@ -5,8 +5,10 @@ import SwiftData
 struct GymScanApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            RootView()
+                .preferredColorScheme(.dark)
+                .tint(GymScanTheme.accent)
         }
-        .modelContainer(for: [Gym.self, Equipment.self, Workout.self])
+        .modelContainer(for: [Gym.self, Equipment.self, Workout.self, UserProfile.self])
     }
 }

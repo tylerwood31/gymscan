@@ -1,0 +1,38 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity description
+- count: integer, how many distinct units of this equipment type are visible
+- confidence: high / medium / low
+
+Counting Rules:
+- A dumbbell rack counts as 1 "dumbbell" entry. Describe the range in details (e.g., "rack with 5-50 lb pairs").
+- A kettlebell rack or set counts as 1 "kettlebell" entry. Describe what you see in details.
+- A medicine ball rack counts as 1 "medicine_ball" entry. Note quantity and weights in details.
+- Count individual machines for cardio (3 treadmills = count: 3). Count each one by one.
+- For resistance bands, foam rollers, stability balls: count the number of distinct items visible.
+
+Equipment Identification - Key Distinctions:
+- Functional trainer: Has TWO independent adjustable cable arms with SEPARATE weight stacks on each side. This is the most commonly missed equipment type -- look carefully for dual-stack cable setups.
+- Cable machine: Has a SINGLE weight stack with fixed or adjustable pulleys. If you see two independent stacks with separate arms, that is a functional_trainer, not cable_machine.
+- Lat pulldown: A dedicated station with an overhead bar and seat, often part of a cable system. Report as lat_pulldown, not cable_machine.
+- Benches: Only report "bench_adjustable" if you can clearly see adjustment mechanisms (pins, levers, multiple positions). Default to "bench_flat" for flat surfaces without visible adjustment hardware. Only use "bench_incline" for fixed incline benches.
+- Seated row: A dedicated machine with a chest pad and horizontal pulling handle. Do not confuse cable attachments with a seated row machine.
+- Elliptical: Must see the distinctive oval/elliptical pedal motion mechanism with moving handlebars.
+- Rowing machine: Must see a sliding seat on a rail with a pulling handle/chain mechanism.
+
+Systematic Scan:
+1. Scan left to right, foreground to background
+2. Check corners, edges, and floor areas for small items: stability balls, medicine balls, foam rollers, resistance bands, yoga mats
+3. Look at wall-mounted items: pull-up bars, resistance bands hanging on hooks, TRX suspension trainers
+4. For any cable setup, verify whether it has one stack (cable_machine) or two independent stacks (functional_trainer)
+
+Rules:
+- ONLY report equipment you can clearly see. Do not hallucinate or assume hidden equipment.
+- Include partially visible equipment if you can identify the type with reasonable confidence.
+- Ignore non-equipment items: TVs, mirrors, water fountains, towels, cleaning supplies, speakers.
+- Use confidence "low" when identification is uncertain, "medium" for partially obscured items, "high" for clearly visible equipment.
+- If you cannot determine the exact type, use the closest match from the enum.
+
+Return ONLY a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No markdown, no code blocks, no explanation.

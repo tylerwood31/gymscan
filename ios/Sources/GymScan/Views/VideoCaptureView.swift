@@ -3,7 +3,8 @@ import AVFoundation
 
 struct VideoCaptureView: View {
     @Bindable var scanViewModel: ScanViewModel
-    @Binding var path: NavigationPath
+    var onNavigate: ((ScanFlowStep) -> Void)? = nil
+    var onDismiss: (() -> Void)? = nil
     @Environment(\.modelContext) private var modelContext
     @State private var cameraManager = CameraManager()
     @State private var hasPermission = false
@@ -11,7 +12,7 @@ struct VideoCaptureView: View {
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            GymScanTheme.background.ignoresSafeArea()
 
             switch scanViewModel.scanState {
             case .idle:
@@ -23,7 +24,7 @@ struct VideoCaptureView: View {
             case .complete:
                 Color.clear
                     .onAppear {
-                        path.append(ScanFlowStep.equipment)
+                        onNavigate?(.equipment)
                     }
             case .error:
                 errorContent
@@ -34,7 +35,7 @@ struct VideoCaptureView: View {
             ToolbarItem(placement: .principal) {
                 Text("Scan Gym")
                     .font(.headline)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(GymScanTheme.textPrimary)
             }
         }
         .toolbarBackground(.hidden, for: .navigationBar)
@@ -63,7 +64,7 @@ struct VideoCaptureView: View {
                 }
             }
             Button("Cancel", role: .cancel) {
-                path.removeLast()
+                onDismiss?()
             }
         } message: {
             Text("GymScan needs camera access to scan gym equipment. Please enable it in Settings.")
@@ -104,19 +105,19 @@ struct VideoCaptureView: View {
         VStack(spacing: 12) {
             Image(systemName: "camera.viewfinder")
                 .font(.system(size: 48))
-                .foregroundStyle(.white)
+                .foregroundStyle(GymScanTheme.accent)
 
             Text("Slowly pan around the gym")
                 .font(.title3.bold())
-                .foregroundStyle(.white)
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             Text("Try to capture all equipment from different angles")
                 .font(.subheadline)
-                .foregroundStyle(.white.opacity(0.7))
+                .foregroundStyle(GymScanTheme.textPrimary.opacity(0.7))
                 .multilineTextAlignment(.center)
         }
         .padding(24)
-        .background(.ultraThinMaterial.opacity(0.8))
+        .background(GymScanTheme.surface.opacity(0.9))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 32)
     }
@@ -125,22 +126,22 @@ struct VideoCaptureView: View {
         VStack(spacing: 16) {
             HStack(spacing: 8) {
                 Circle()
-                    .fill(.red)
+                    .fill(GymScanTheme.destructive)
                     .frame(width: 12, height: 12)
                 Text("Recording")
                     .font(.subheadline.bold())
-                    .foregroundStyle(.white)
+                    .foregroundStyle(GymScanTheme.textPrimary)
             }
 
             // Progress bar
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(.white.opacity(0.3))
+                        .fill(GymScanTheme.surfaceLight)
                         .frame(height: 8)
 
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(.red)
+                        .fill(GymScanTheme.accent)
                         .frame(width: geometry.size.width * cameraManager.recordingProgress, height: 8)
                 }
             }
@@ -149,7 +150,7 @@ struct VideoCaptureView: View {
 
             Text("\(Int(cameraManager.recordingProgress * CameraManager.maxDuration))s / \(Int(CameraManager.maxDuration))s")
                 .font(.caption)
-                .foregroundStyle(.white.opacity(0.7))
+                .foregroundStyle(GymScanTheme.textSecondary)
                 .monospacedDigit()
         }
     }
@@ -173,16 +174,16 @@ struct VideoCaptureView: View {
         } label: {
             ZStack {
                 Circle()
-                    .stroke(.white, lineWidth: 4)
+                    .stroke(GymScanTheme.textPrimary, lineWidth: 4)
                     .frame(width: 72, height: 72)
 
                 if cameraManager.isRecording {
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(.red)
+                        .fill(GymScanTheme.destructive)
                         .frame(width: 28, height: 28)
                 } else {
                     Circle()
-                        .fill(.red)
+                        .fill(GymScanTheme.accent)
                         .frame(width: 60, height: 60)
                 }
             }
@@ -193,15 +194,15 @@ struct VideoCaptureView: View {
         VStack(spacing: 20) {
             ProgressView()
                 .scaleEffect(1.5)
-                .tint(.white)
+                .tint(GymScanTheme.accent)
 
             Text(scanViewModel.frameExtractionProgress)
                 .font(.headline)
-                .foregroundStyle(.white)
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             Text("This may take a moment...")
                 .font(.subheadline)
-                .foregroundStyle(.white.opacity(0.6))
+                .foregroundStyle(GymScanTheme.textSecondary)
         }
     }
 
@@ -209,16 +210,16 @@ struct VideoCaptureView: View {
         VStack(spacing: 20) {
             Image(systemName: "exclamationmark.triangle.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.yellow)
+                .foregroundStyle(GymScanTheme.accent)
 
             Text("Something went wrong")
                 .font(.title3.bold())
-                .foregroundStyle(.white)
+                .foregroundStyle(GymScanTheme.textPrimary)
 
             if let error = scanViewModel.error {
                 Text(error)
                     .font(.subheadline)
-                    .foregroundStyle(.white.opacity(0.7))
+                    .foregroundStyle(GymScanTheme.textSecondary)
                     .multilineTextAlignment(.center)
             }
 
@@ -227,7 +228,12 @@ struct VideoCaptureView: View {
                 scanViewModel.error = nil
                 cameraManager.startSession()
             }
-            .buttonStyle(.borderedProminent)
+            .font(.headline)
+            .foregroundStyle(GymScanTheme.background)
+            .padding(.horizontal, 32)
+            .padding(.vertical, 12)
+            .background(GymScanTheme.accentGradient)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
         .padding()
     }
@@ -238,23 +244,32 @@ struct VideoCaptureView: View {
 struct CameraPreviewView: UIViewRepresentable {
     let cameraManager: CameraManager
 
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
+    func makeUIView(context: Context) -> CameraPreviewUIView {
+        let view = CameraPreviewUIView()
         view.backgroundColor = .black
-
         if let previewLayer = cameraManager.previewLayer {
-            previewLayer.frame = view.bounds
+            previewLayer.videoGravity = .resizeAspectFill
+            view.previewLayer = previewLayer
             view.layer.addSublayer(previewLayer)
         }
-
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: Context) {
-        if let previewLayer = cameraManager.previewLayer {
-            DispatchQueue.main.async {
-                previewLayer.frame = uiView.bounds
-            }
+    func updateUIView(_ uiView: CameraPreviewUIView, context: Context) {
+        if uiView.previewLayer == nil, let previewLayer = cameraManager.previewLayer {
+            previewLayer.videoGravity = .resizeAspectFill
+            uiView.previewLayer = previewLayer
+            uiView.layer.addSublayer(previewLayer)
         }
+        uiView.previewLayer?.frame = uiView.bounds
+    }
+}
+
+final class CameraPreviewUIView: UIView {
+    var previewLayer: AVCaptureVideoPreviewLayer?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        previewLayer?.frame = bounds
     }
 }

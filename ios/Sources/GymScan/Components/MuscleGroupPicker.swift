@@ -51,9 +51,13 @@ struct MuscleGroupPill: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
-            .foregroundStyle(isSelected ? .white : .primary)
-            .background(isSelected ? Color.blue : Color.gray.opacity(0.1))
+            .foregroundStyle(isSelected ? GymScanTheme.textPrimary : GymScanTheme.textSecondary)
+            .background(isSelected ? GymScanTheme.accent.opacity(0.2) : GymScanTheme.surface)
             .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? GymScanTheme.accent : GymScanTheme.surfaceLight, lineWidth: 1)
+            )
         }
         .buttonStyle(.plain)
         .sensoryFeedback(.selection, trigger: isSelected)

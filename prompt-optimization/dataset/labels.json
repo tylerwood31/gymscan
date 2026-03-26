@@ -1,0 +1,2302 @@
+[
+  {
+    "image": "gym_001_8bdc38f5d7.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with displays and handrails",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be rubber-coated",
+        "count": 1
+      },
+      {
+        "type": "bench_flat",
+        "details": "white/light colored flat bench",
+        "count": 1
+      },
+      {
+        "type": "barbell",
+        "details": "Olympic barbell with weight plates loaded",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_004_f35867b092.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial cardio machines with displays",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine with handles and display",
+        "count": 1
+      },
+      {
+        "type": "rowing_machine",
+        "details": "black rowing machine in foreground",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable weight bench",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large exercise ball visible in background",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "tall black cable machine system",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_005_aa87c14bae.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with displays and handrails",
+        "count": 4
+      },
+      {
+        "type": "cable_machine",
+        "details": "adjustable cable machine with weight stack",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large exercise balls in blue and other colors",
+        "count": 3
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_006_9b8bb89fd7.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to have various weights organized on two-tier rack system",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade elliptical machine with handles and digital display, silver/gray color",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine system visible in background, appears to be commercial grade",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_007_011bb8b662.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and handrails",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machines with moving arm handles and digital displays",
+        "count": 3
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bike with digital display",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_008_39460a052a.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "ATLAS brand cable machine with dual weight stacks and pulleys",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be 5-50+ lb range",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "multiple kettlebells visible on rack, various weights",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench with backrest",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "seated cable machine with weight stack",
+        "count": 1
+      },
+      {
+        "type": "battle_ropes",
+        "details": "thick black training ropes coiled and stored",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "machine with overhead pulley system and seat",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_011_393fa6b3fc.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "curved manual treadmill with black belt and gold/bronze frame",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to be hexagonal design",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "dark colored kettlebell on floor",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "dark spherical medicine ball",
+        "count": 1
+      },
+      {
+        "type": "foam_roller",
+        "details": "cylindrical foam roller on floor",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_012_d80a4ff296.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with digital displays and blue accents",
+        "count": 4
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with digital displays",
+        "count": 3
+      },
+      {
+        "type": "rowing_machine",
+        "details": "single commercial rowing machine with digital display",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "cable-based machine with dual weight stacks",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_015_0c30ba48fa.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade treadmills with digital displays and handrails",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machine with digital display and moving handles",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable bench with metal frame",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine with pulleys and weight stack",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_018_3ed4197346.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "wooden rack with multiple pairs of dumbbells, appears to be full range",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "wooden rack with multiple kettlebells of varying sizes",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "wooden storage rack with multiple medicine balls",
+        "count": 1
+      },
+      {
+        "type": "pull_up_bar",
+        "details": "wall-mounted wooden pull-up station with multiple grip positions",
+        "count": 1
+      },
+      {
+        "type": "rowing_machine",
+        "details": "wooden construction with curved rail design, appears to be premium quality",
+        "count": 2
+      },
+      {
+        "type": "foam_roller",
+        "details": "multiple foam rollers stored on wooden rack system",
+        "count": 1
+      },
+      {
+        "type": "resistance_bands",
+        "details": "wall-mounted storage system with various resistance bands",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "wooden storage rack with exercise balls",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_019_b0340633a2.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "lat_pulldown",
+        "details": "TRUE brand cable machine with lat pulldown station, adjustable seat",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "TRUE brand dual adjustable cable stations with pulleys",
+        "count": 3
+      },
+      {
+        "type": "functional_trainer",
+        "details": "TRUE brand dual cable crossover machine with adjustable arms",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_020_61050e0639.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "pull_up_bar",
+        "details": "overhead pull-up station with black frame",
+        "count": 2
+      },
+      {
+        "type": "cable_machine",
+        "details": "dual adjustable pulley system with weight stack",
+        "count": 2
+      },
+      {
+        "type": "functional_trainer",
+        "details": "multi-station cable crossover machine",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "various sizes on storage rack",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "multiple colored balls on rack",
+        "count": 1
+      },
+      {
+        "type": "battle_ropes",
+        "details": "black training ropes",
+        "count": 1
+      },
+      {
+        "type": "resistance_bands",
+        "details": "hanging straps and bands",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with various weight pairs",
+        "count": 1
+      },
+      {
+        "type": "barbell",
+        "details": "olympic barbells on storage",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_021_c982c70f98.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial grade cardio machines with digital displays",
+        "count": 4
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable crossover systems with adjustable pulleys",
+        "count": 2
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual adjustable pulley system for functional movements",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "black weighted balls on storage rack",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large exercise balls for core training",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack system with multiple weight pairs",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_022_97859bc6a4.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with console display and handrails",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with moving handlebars and console display",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bike with console display",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_023_c6195b75f8.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and handrails, appear to be modern gym-quality machines",
+        "count": 4
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_024_9d133b9e62.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be commercial grade with various weights",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "rack with multiple kettlebells of varying weights, black color",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black Rogue brand adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "bench_flat",
+        "details": "black flat bench",
+        "count": 1
+      },
+      {
+        "type": "pull_up_bar",
+        "details": "black power rack with pull-up bar attachment",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "black medicine ball on floor, appears to be 10 lb",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "commercial cable machine visible in background",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills visible in background area",
+        "count": 3
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_025_155227493d.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "TechnoGym brand, commercial grade, blue/gray color",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be 5-50+ lb range",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "tall white/beige tower with pulley system and weight stack",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_026_833ae05fcd.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "spin_bike",
+        "details": "two stationary bikes with large flywheels, black frame, indoor cycling style",
+        "count": 2
+      },
+      {
+        "type": "rowing_machine",
+        "details": "three black rowing machines with sliding seats and pull handles",
+        "count": 3
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_027_dac3c1d82f.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable benches with red and white accents, appear to be commercial grade",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "extensive rack system with multiple weight ranges, black dumbbells with numbering",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine system in background, black frame with red accents",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable station visible in left background, black commercial equipment",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_028_e0bb8d495d.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and handrails, appears to be professional grade equipment",
+        "count": 6
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine with adjustable pulleys and weight stack, black frame",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable station with adjustable height pulleys, appears to be commercial grade with weight stacks",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_029_124f1a0617.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with digital displays and handrails",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with moving arm handles and digital display",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bike with digital display",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_032_20bcc349f4.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "red and black dual cable machine with weight stacks, adjustable pulleys, includes handles and straps",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "black dual cable machine with weight stacks, adjustable pulleys",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "single stack cable machine with lat pulldown and low row attachments, digital display panel",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_033_9af03f168d.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "chest_press_machine",
+        "details": "orange/tan upholstered seat and back pad, black frame, appears to be commercial grade with weight stack",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "black frame with weight stacks visible on both sides, commercial multi-station cable machine",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_034_01454851e0.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "lat pulldown station with adjustable weight stack, black frame",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio equipment with digital display, black frame",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine with handlebars and digital console",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_036_86e337606e.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "TRUE brand commercial treadmills with individual entertainment screens, black frames with digital displays",
+        "count": 6
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_037_173c280548.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "barbell",
+        "details": "standard barbell with weight plates loaded, appears to be Olympic style with black plates",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable workout bench, appears to be flat position",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_040_e6ed6a7bb5.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with displays and handrails",
+        "count": 4
+      },
+      {
+        "type": "rowing_machine",
+        "details": "two rowing machines with red/black color scheme, appears to be air resistance type",
+        "count": 2
+      },
+      {
+        "type": "cable_machine",
+        "details": "white cable machine with adjustable pulley system",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable station with multiple attachment points",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to be rubber coated",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large exercise balls in multiple colors including red, blue, and gray",
+        "count": 6
+      },
+      {
+        "type": "medicine_ball",
+        "details": "weighted balls stored on rack",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_041_fa585e222b.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "spin_bike",
+        "details": "stationary exercise bike with person actively using it",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "white cable machine with dual weight stacks and multiple attachment points",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "black commercial elliptical machines with handles",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_042_fce5b0121c.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to range from light to heavy weights",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio machines with display screens",
+        "count": 4
+      },
+      {
+        "type": "elliptical",
+        "details": "Precor brand elliptical machine visible in foreground",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable system with pulleys and weight stacks",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable machine with adjustable pulleys",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_044_dfa0c760f5.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "stability_ball",
+        "details": "blue exercise ball on floor",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "black medicine balls stacked on rack, appears to be multiple weights",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "dumbbell rack with multiple weight pairs visible",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable machine with adjustable pulleys and weight stacks",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable workout bench",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_047_eed3359435.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to be rubber-coated hexagonal dumbbells",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable weight bench with back support",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "dual cable station with adjustable pulleys and weight stack",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "cable crossover machine with dual weight stacks",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "various colored exercise balls stored on wall rack - blue, gray, orange visible",
+        "count": 6
+      },
+      {
+        "type": "medicine_ball",
+        "details": "multiple medicine balls of different sizes stored on wall rack",
+        "count": 4
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_048_d0691e3651.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "smith_machine",
+        "details": "black frame with guided barbell system and safety catches",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded bench with adjustable backrest",
+        "count": 1
+      },
+      {
+        "type": "barbell",
+        "details": "Olympic barbell with colorful weight plates (blue, green, yellow)",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "integrated cable system with pulleys and handles",
+        "count": 1
+      },
+      {
+        "type": "pull_up_bar",
+        "details": "multi-grip pull-up bar at top of frame",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "integrated lat pulldown station with cable system",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_050_1a97c4bdce.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable crossover system with dual pulleys",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial grade cardio machines with displays",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine with moving handles",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack system with multiple weight pairs",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_052_aeedef6be3.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable crossover machine with adjustable pulleys",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual adjustable cable stations with multiple attachment points",
+        "count": 2
+      },
+      {
+        "type": "chest_press_machine",
+        "details": "seated chest press with weight stack",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "seated lat pulldown machine with weight stack",
+        "count": 1
+      },
+      {
+        "type": "seated_row",
+        "details": "horizontal rowing machine with weight stack",
+        "count": 1
+      },
+      {
+        "type": "leg_press",
+        "details": "angled leg press machine",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "blue/gray exercise ball on floor",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "orange/black adjustable workout bench",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_054_e0a9b29aa5.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmill with large display console, appears to be in good condition",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machine with dual action handles and digital display",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bike with console display, appears to be commercial grade",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_056_801d6e8b92.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "large dual-stack cable machine with multiple attachment points, appears to be commercial grade",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black upholstered adjustable bench near cable machine",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "vertical rack with multiple pairs of dumbbells, appears to be chrome/metal finish",
+        "count": 1
+      },
+      {
+        "type": "barbell",
+        "details": "Olympic barbells stored on rack system on right side, Gymleco brand visible",
+        "count": 2
+      },
+      {
+        "type": "bench_flat",
+        "details": "black flat bench positioned on gym floor",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "black exercise ball visible in background",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "machine visible in background left area with seat and overhead bar",
+        "count": 1
+      },
+      {
+        "type": "chest_press_machine",
+        "details": "plate-loaded machine visible in background, appears to be Gymleco brand",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_057_4e1d9c169f.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmill with console display",
+        "count": 1
+      },
+      {
+        "type": "rowing_machine",
+        "details": "black rowing machine with sliding seat",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "black cable machine with dual weight stacks and adjustable pulleys",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "dumbbell rack with multiple weight pairs",
+        "count": 1
+      },
+      {
+        "type": "smith_machine",
+        "details": "black smith machine frame in background",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_059_ad9c63969e.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial grade elliptical machine, black frame with digital display console",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable weight bench with backrest adjustment",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "dumbbell rack with multiple pairs of dumbbells, appears to be rubber coated",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_060_45d8d7c0e4.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial Sheraton branded, black with digital displays",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "commercial Sheraton branded recumbent bikes, black with back support",
+        "count": 2
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial Sheraton branded, black with digital displays",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_061_9185552fca.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "large silver/grey dual-stack cable machine with pulleys and adjustable arms",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "black commercial elliptical machines visible in foreground",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs visible in background",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "additional cable stations visible in background gym area",
+        "count": 2
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench visible in background",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_062_7a41ca1793.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial PROMAXIMA brand treadmills with digital displays and handles",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machine with handles visible on the right side",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_063_db3e98a57e.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "black frame wall-mounted unit with cable system and attachments",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "four black medicine balls stored on top shelf, appears to be LYFT brand",
+        "count": 4
+      },
+      {
+        "type": "resistance_bands",
+        "details": "yellow TRX suspension trainer straps hanging from frame",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "blue exercise ball on floor",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "red and black indoor cycling bike, appears to be commercial grade",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_064_1375e2f879.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "leg_press",
+        "details": "plate-loaded leg press machine with red padding, appears to be commercial grade",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "cable-based lat pulldown machine with weight stack, red and gray color scheme",
+        "count": 1
+      },
+      {
+        "type": "chest_press_machine",
+        "details": "seated chest press machine with red padding and handles",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "red padded adjustable bench, appears to be incline/decline capable",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_065_313e09e1bc.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs ranging from approximately 5-50 lbs, black rubber-coated hexagonal dumbbells",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "black exercise balls with ribbed surface, appears to be standard 65cm size",
+        "count": 3
+      },
+      {
+        "type": "foam_roller",
+        "details": "black cylindrical foam rollers mounted on wall rack",
+        "count": 3
+      },
+      {
+        "type": "resistance_bands",
+        "details": "colorful resistance bands with handles stored on wall rack",
+        "count": 1
+      },
+      {
+        "type": "yoga_mat",
+        "details": "black exercise mat stored on wall rack",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_066_05f8d37c79.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "multi-station home gym system with cable pulleys, lat pulldown attachment, seated row station, leg extension/curl attachment, adjustable bench, silver/gray frame",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_067_651f933f61.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical trainers with digital displays and moving arm handles",
+        "count": 2
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital control panels and safety rails",
+        "count": 4
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_069_ca500c2001.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial grade, multiple units in foreground",
+        "count": 4
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial grade, visible in background right",
+        "count": 3
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable system, tall black units",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack system with multiple weight pairs",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "commercial adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "blue exercise ball on floor",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "red medicine ball on floor",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_070_3036da6d32.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial TechnoGym brand treadmills with console displays",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "three-tier dumbbell rack with multiple weight pairs, appears to range from light to heavy weights",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine with adjustable pulleys and weight stack",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "adjustable workout bench with brown/tan colored padding",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "orange/red colored exercise ball",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_071_8f306e7c10.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial cardio machines with digital displays and handrails, appear to be modern gym-quality equipment",
+        "count": 3
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_072_93b45c6222.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial Star Trac brand treadmills with digital displays and safety handles",
+        "count": 4
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial Star Trac brand elliptical with digital display and moving handles",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_073_af8dbd9020.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine with display console",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with display consoles and handrails",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be commercial grade",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "red/orange exercise ball",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_074_c1a6965c32.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "black hexagonal rubber-coated dumbbells with chrome handles, appears to be 30 lb weight based on visible marking",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_075_24dff41a14.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial Matrix brand treadmills with touchscreen displays and orange accent colors, good condition",
+        "count": 6
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial Matrix brand elliptical machines with touchscreen displays and orange accent colors, good condition",
+        "count": 4
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_076_ead9abf74c.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be hex dumbbells in dark finish",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio machines with individual screens, appear to be Life Fitness or similar brand",
+        "count": 4
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "ROGUE brand adjustable bench, black and silver color scheme",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "white medicine balls stored on wooden rack shelving system",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_077_2b67d22e65.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "black commercial elliptical machines with display screens and moving handlebars",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "black Bodytone brand upright exercise bikes with digital displays",
+        "count": 4
+      },
+      {
+        "type": "functional_trainer",
+        "details": "black commercial multi-station cable machines with adjustable pulleys and weight stacks",
+        "count": 6
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_079_dcb4e65c87.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and handrails",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machines with digital displays",
+        "count": 2
+      },
+      {
+        "type": "stationary_bike",
+        "details": "recumbent exercise bikes with back support and digital displays",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_080_8866c5b1b9.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with digital displays and handrails",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with digital display and moving handles",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "bright green/yellow exercise ball",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable workout bench",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_002_c5722cacd0.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable crossover machine with adjustable pulleys",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio machines with displays",
+        "count": 2
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine with handles",
+        "count": 1
+      },
+      {
+        "type": "rowing_machine",
+        "details": "commercial rowing ergometer",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bike",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "multi-station strength training machine",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_003_9aea11819c.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable crossover with dual weight stacks, black frame",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual adjustable cable system with multiple attachment points",
+        "count": 1
+      },
+      {
+        "type": "lat_pulldown",
+        "details": "seated lat pulldown machine with high pulley, tan/brown upholstery",
+        "count": 1
+      },
+      {
+        "type": "seated_row",
+        "details": "horizontal cable row machine with chest pad, tan upholstery",
+        "count": 1
+      },
+      {
+        "type": "chest_press_machine",
+        "details": "seated chest press with handles, dark upholstery",
+        "count": 1
+      },
+      {
+        "type": "shoulder_press_machine",
+        "details": "seated overhead press machine",
+        "count": 1
+      },
+      {
+        "type": "leg_press",
+        "details": "angled leg press machine with foot plate",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "adjustable workout bench with tan upholstery",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_009_71f753a098.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "Smart brand cable machine with dual weight stacks and pulleys",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "yellow stability ball with markings",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "green stability ball with markings",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "blue stability ball with markings",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "rack of colorful medicine balls in various weights, appears to be 6-7 balls total",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_010_c4d2135912.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "cable_machine",
+        "details": "Atlantis brand multi-station cable machine with weight stack",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench with backrest",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs visible in background",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable column machine with pulleys",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_013_f1468028f8.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to be 5-50 lb range",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable machine with adjustable pulleys, appears to be commercial grade",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machine with handles",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial treadmill with console display",
+        "count": 2
+      },
+      {
+        "type": "stability_ball",
+        "details": "blue exercise ball mounted on wall",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "yellow medicine ball",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "green medicine ball",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_014_1622872947.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "black metal frame with dual weight stacks and pulleys, appears to be a compact hotel-style unit",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_016_aa9088a983.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with display screens and handrails, appears to be premium brand",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with display screen and moving arm handles",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_017_c3e2660c2d.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "smith_machine",
+        "details": "Atlantis brand power rack with Smith machine functionality, black frame with barbell guide rails",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "Atlantis brand adjustable bench with white padding, appears to adjust from flat to incline positions",
+        "count": 1
+      },
+      {
+        "type": "barbell",
+        "details": "Olympic barbell with weight plates loaded on Smith machine",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack visible in mirror reflection showing multiple pairs of dumbbells",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "partial view of cable machine system visible in background",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_030_da410fa239.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmill, appears to be Life Fitness or similar brand",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machines, multiple units visible on the right side",
+        "count": 4
+      },
+      {
+        "type": "functional_trainer",
+        "details": "cable-based functional trainer with dual weight stacks and adjustable pulleys",
+        "count": 1
+      },
+      {
+        "type": "battle_ropes",
+        "details": "large tire with battle ropes for functional training",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_031_108d14259c.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade with digital display console, woman currently using",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial grade with digital display and moving handlebars",
+        "count": 1
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright bike with digital display console",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells arranged on three tiers",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "black kettlebell visible on lower shelf of equipment storage",
+        "count": 1
+      },
+      {
+        "type": "bench_flat",
+        "details": "adjustable workout bench positioned near weight area",
+        "count": 1
+      },
+      {
+        "type": "yoga_mat",
+        "details": "blue exercise mat laid out on floor",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_035_c32537cc2a.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple pairs of dumbbells, appears to be full range",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial grade treadmill, partially visible on right side",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "rack with multiple exercise balls of different sizes, black colored",
+        "count": 6
+      },
+      {
+        "type": "functional_trainer",
+        "details": "cable-based functional training system with pull-up bar attachment",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "rack with multiple weighted medicine balls",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_038_4eb4636603.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and safety rails",
+        "count": 2
+      },
+      {
+        "type": "stability_ball",
+        "details": "large gray exercise balls stored on equipment",
+        "count": 2
+      },
+      {
+        "type": "stability_ball",
+        "details": "red exercise ball",
+        "count": 1
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machine with pulley system, appears to be commercial grade",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_039_6fc0d7edfe.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmill with console display",
+        "count": 1
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machine with moving handles",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "dumbbell rack visible on left side with multiple weight pairs",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_043_e453d9e135.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machine, black frame",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio equipment visible in background",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_045_b9ac6b5be6.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "multiple tier rack with various weight dumbbells, appears to be complete set",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench positioned in front of dumbbell rack",
+        "count": 1
+      },
+      {
+        "type": "rowing_machine",
+        "details": "black rowing machine on left side of room",
+        "count": 1
+      },
+      {
+        "type": "kettlebell",
+        "details": "rack of various weight kettlebells on shelving unit",
+        "count": 1
+      },
+      {
+        "type": "medicine_ball",
+        "details": "multiple medicine balls stored on shelving rack",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_046_5f27979b0a.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "functional_trainer",
+        "details": "Lacertosus brand power rack with adjustable bench, multiple attachment points, black steel construction",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "Lacertosus brand adjustable bench with backrest and seat pad, appears to have multiple angle positions",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_049_e983d1c114.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "stability_ball",
+        "details": "large gray exercise balls",
+        "count": 3
+      },
+      {
+        "type": "foam_roller",
+        "details": "black cylindrical foam roller on floor",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable workout bench with metal frame",
+        "count": 1
+      },
+      {
+        "type": "dumbbell",
+        "details": "wall-mounted rack with multiple weight pairs, appears to be full set",
+        "count": 1
+      },
+      {
+        "type": "yoga_mat",
+        "details": "dark colored mat laid out on wooden floor",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_051_f94a352e13.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial TechnoGym brand with displays and handrails",
+        "count": 4
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial TechnoGym brand with displays and moving handles",
+        "count": 2
+      },
+      {
+        "type": "stair_climber",
+        "details": "commercial TechnoGym brand with displays and side rails",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_053_0c72e6815f.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade treadmills with displays, arranged in rows along windows",
+        "count": 12
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machines with displays, positioned in foreground",
+        "count": 4
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bikes visible in background area",
+        "count": 3
+      },
+      {
+        "type": "cable_machine",
+        "details": "multi-station cable machines visible in weight area background",
+        "count": 2
+      },
+      {
+        "type": "functional_trainer",
+        "details": "dual cable functional training equipment in background",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_055_8f7915f609.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "smith_machine",
+        "details": "blue frame with barbell and safety catches",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black adjustable bench with red accents",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "black dumbbells arranged in curved rack, multiple weight pairs",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large exercise balls in various colors - black, orange, and blue stored on rack",
+        "count": 4
+      },
+      {
+        "type": "pull_up_bar",
+        "details": "blue multi-station rack with pull-up bars",
+        "count": 1
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_058_6d635923b9.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial treadmills with digital displays and handrails, appear to be professional grade gym equipment",
+        "count": 6
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial elliptical machines with digital displays and moving arm handles, professional grade",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_068_2627b5ba57.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be rubber coated dumbbells",
+        "count": 1
+      },
+      {
+        "type": "functional_trainer",
+        "details": "red and white cable machine with dual weight stacks",
+        "count": 1
+      },
+      {
+        "type": "treadmill",
+        "details": "commercial cardio equipment in background",
+        "count": 3
+      },
+      {
+        "type": "elliptical",
+        "details": "commercial cardio machines visible in background",
+        "count": 2
+      },
+      {
+        "type": "stationary_bike",
+        "details": "upright exercise bikes in cardio area",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  },
+  {
+    "image": "gym_078_f7d5bc6ab6.jpg",
+    "source": "hotel gym equipment",
+    "equipment": [
+      {
+        "type": "treadmill",
+        "details": "commercial grade, black with display screens",
+        "count": 2
+      },
+      {
+        "type": "dumbbell",
+        "details": "rack with multiple weight pairs, appears to be commercial grade",
+        "count": 1
+      },
+      {
+        "type": "bench_adjustable",
+        "details": "black padded adjustable bench",
+        "count": 1
+      },
+      {
+        "type": "stability_ball",
+        "details": "large silver/gray exercise balls",
+        "count": 2
+      },
+      {
+        "type": "stability_ball",
+        "details": "large red exercise balls",
+        "count": 2
+      }
+    ],
+    "labeled_by": "claude-vision-initial",
+    "reviewed": false
+  }
+]

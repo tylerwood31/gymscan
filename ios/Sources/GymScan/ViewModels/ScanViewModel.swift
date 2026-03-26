@@ -11,6 +11,7 @@ final class ScanViewModel {
     var currentGym: Gym?
     var error: String?
     var frameExtractionProgress: String = ""
+    var isDemo: Bool = false
 
     enum ScanState {
         case idle
@@ -32,6 +33,20 @@ final class ScanViewModel {
             let frames = try await VideoProcessor.extractFrames(from: url)
             frameExtractionProgress = "Extracted \(frames.count) frames"
 
+            await processFrames(frames, modelContext: modelContext)
+
+            // Clean up temp video file
+            try? FileManager.default.removeItem(at: url)
+        } catch {
+            self.error = error.localizedDescription
+            scanState = .error
+        }
+    }
+
+    /// Process raw image data frames through the scan API.
+    /// Used by both the camera flow and demo mode.
+    func processFrames(_ frames: [Data], modelContext: ModelContext) async {
+        do {
             scanState = .uploading
             frameExtractionProgress = "Analyzing gym equipment..."
 
@@ -42,21 +57,22 @@ final class ScanViewModel {
             let equipmentList = response.equipment.map { item in
                 Equipment(
                     type: EquipmentType(rawValue: item.type) ?? .other,
-                    details: item.details,
+                    details: item.details.isEmpty ? nil : item.details,
                     confidence: ConfidenceLevel(rawValue: item.confidence) ?? .medium,
                     isEnabled: true
                 )
             }
             gym.equipment = equipmentList
-            modelContext.insert(gym)
-            try modelContext.save()
+
+            // Don't persist demo scans to SwiftData
+            if !isDemo {
+                modelContext.insert(gym)
+                try modelContext.save()
+            }
 
             currentGym = gym
             detectedEquipment = equipmentList
             scanState = .complete
-
-            // Clean up temp video file
-            try? FileManager.default.removeItem(at: url)
         } catch {
             self.error = error.localizedDescription
             scanState = .error
@@ -67,9 +83,9 @@ final class ScanViewModel {
         guard let gymId = currentGymId else { return }
 
         let confirmed = detectedEquipment.filter(\.isEnabled).map { item in
-            EquipmentConfirmation(
+            EquipmentConfirmationDTO(
                 type: item.typeRaw,
-                details: item.details,
+                details: item.details ?? "",
                 userConfirmed: true
             )
         }

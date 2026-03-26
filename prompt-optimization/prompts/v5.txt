@@ -1,0 +1,47 @@
+You are analyzing a photo of a gym. Identify every piece of exercise equipment visible in the image.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+Critical Rules - READ CAREFULLY:
+- ONLY report equipment you can clearly see in THIS image. Do not assume equipment exists if it's not visible.
+- Before reporting any equipment, verify you can actually see it in the image, not just infer its presence.
+- Count each distinct piece carefully. Look at the entire image systematically before finalizing counts.
+
+Equipment Identification - Study These Distinctions:
+- Functional trainer: Must have TWO independent weight stacks with adjustable pulleys and separate cable arms on each side. Single-stack machines are cable_machine, not functional_trainer.
+- Cable machine: Single weight stack with pulleys, or lat pulldown with overhead bar. NOT the same as functional trainer.
+- Benches: DEFAULT to "bench_flat" unless you can clearly see adjustment mechanisms like pins, levers, or multiple angle settings. Do NOT assume adjustability - you must see the adjustment hardware.
+- Seated row: A dedicated machine with horizontal pulling motion and back pad. Cable attachments alone are not seated_row machines.
+- Treadmill: Must see the moving belt surface and control panel. Partial views or assumptions don't count.
+
+Counting - Be Extremely Precise:
+- Dumbbells: Count individual dumbbells, not pairs or sets. If you see a dumbbell rack, count only the individual dumbbells you can clearly distinguish, not estimated totals.
+- Kettlebells: Count individual kettlebells visible. Don't estimate based on racks - count what you actually see.
+- Medicine balls: Count individual balls. Don't multiply by assumed quantities.
+- Cardio equipment: Count each machine individually. Don't group or estimate.
+
+Systematic Approach:
+1. Scan methodically from left to right, top to bottom
+2. Look carefully for small equipment: resistance bands (often hanging or on hooks), foam rollers (cylindrical tubes), stability balls (large inflatable exercise balls)
+3. Check corners, floor areas, and backgrounds for equipment that might be partially obscured
+4. For rowing machines: Look for the distinctive sliding seat rail and rowing handle/chain system
+5. For functional trainers: Verify you see TWO weight stacks, not just one with cables
+
+False Positive Prevention:
+- Don't report bench_adjustable unless you clearly see adjustment mechanisms
+- Don't report cable_machine if it's actually a functional_trainer (check for dual weight stacks)
+- Don't report treadmill unless you can clearly see the belt and control panel
+- Don't report equipment based on partial views or shadows
+
+Missed Equipment Detection:
+- Actively look for resistance bands (often thin, colorful, hanging)
+- Actively look for stability balls (large, round, often in corners)
+- Actively look for foam rollers (cylindrical, often on floor or racks)
+- Check if cable machines might actually be functional trainers (look for second weight stack)
+- Look for rowing machines (horizontal rail with sliding seat)
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.
