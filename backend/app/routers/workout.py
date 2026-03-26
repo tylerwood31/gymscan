@@ -66,6 +66,7 @@ async def generate_workout_endpoint(
                 reps=str(ex["reps"]),
                 rest_seconds=ex["rest_seconds"],
                 notes=ex.get("notes", ""),
+                primary_muscles=ex.get("primary_muscles", []),
                 order=ex.get("order", i + 1),
             )
             validated_exercises.append(exercise)

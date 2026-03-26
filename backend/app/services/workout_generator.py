@@ -2,13 +2,21 @@
 
 import json
 import logging
+import os
 from pathlib import Path
 
 import anthropic
 
+from app.services.mock_data import mock_generate_workout
+
 logger = logging.getLogger(__name__)
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
+
+
+def _has_api_key() -> bool:
+    """Check if an Anthropic API key is configured."""
+    return bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
 
 
 def _load_prompt() -> str:
@@ -35,6 +43,8 @@ def generate_workout(
 ) -> list[dict]:
     """Generate a workout plan using Claude API.
 
+    Falls back to mock data if no API key is configured (demo mode).
+
     Args:
         equipment: List of equipment dicts from the gym scan.
         target_muscles: Target muscle groups (e.g., ["chest", "triceps"]).
@@ -48,6 +58,10 @@ def generate_workout(
         anthropic.APIError: If the Claude API call fails.
         json.JSONDecodeError: If the model response is not valid JSON.
     """
+    if not _has_api_key():
+        logger.warning("No ANTHROPIC_API_KEY set -- using demo mode with mock data")
+        return mock_generate_workout(equipment, target_muscles, duration_minutes)
+
     client = anthropic.Anthropic()
 
     prompt_template = _load_prompt()
@@ -79,10 +93,19 @@ def generate_workout(
     logger.debug("Raw Claude response: %s", raw_text[:500])
 
     # Strip markdown code blocks if present
-    if raw_text.startswith("```"):
+    if "```" in raw_text:
         lines = raw_text.split("\n")
         lines = [l for l in lines if not l.strip().startswith("```")]
         raw_text = "\n".join(lines).strip()
+
+    # Find the JSON object/array in the response (skip any preamble text)
+    json_start = -1
+    for i, ch in enumerate(raw_text):
+        if ch in ('{', '['):
+            json_start = i
+            break
+    if json_start > 0:
+        raw_text = raw_text[json_start:]
 
     result = json.loads(raw_text)
 
