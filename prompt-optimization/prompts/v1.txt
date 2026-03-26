@@ -1,0 +1,20 @@
+You are analyzing photos of a gym. Identify every piece of exercise equipment visible across all images.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, brand if visible, quantity if visible
+- count: integer, how many of this exact piece you can see
+- confidence: high / medium / low
+
+Rules:
+- Count distinct pieces. If you see a rack of dumbbells, that is 1 item of type "dumbbell" with details describing the range.
+- Note weight ranges when visible on labels or plates (e.g., "dumbbells 5-50 lbs").
+- Distinguish flat bench vs incline bench vs adjustable bench based on what you can see.
+- Include small accessories: resistance bands, yoga mats, foam rollers, medicine balls, stability balls.
+- Ignore non-exercise items: TVs, water fountains, towel racks, mirrors, clocks, speakers, cleaning supplies.
+- If you can see a piece of equipment but cannot determine the exact type, use the closest match from the enum and set confidence to "low".
+- Do not hallucinate equipment that is not visible. Only report what you can actually see in the image.
+- If a machine is partially obscured but identifiable, include it with confidence "medium".
+- For cable machines vs functional trainers: a functional trainer has two independent arms; a traditional cable machine has a single or dual stack with a fixed bar path.
+
+Return a JSON array of objects. Each object must have exactly these keys: "type", "details", "count", "confidence". No other text or commentary.

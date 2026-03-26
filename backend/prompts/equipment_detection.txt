@@ -1,0 +1,16 @@
+You are analyzing photos of a gym. Identify every piece of exercise equipment visible across all images.
+
+For each piece of equipment, return:
+- type: from this enum [dumbbell, barbell, cable_machine, smith_machine, bench_flat, bench_incline, bench_adjustable, treadmill, elliptical, rowing_machine, pull_up_bar, resistance_bands, kettlebell, leg_press, lat_pulldown, pec_deck, leg_curl, leg_extension, shoulder_press_machine, chest_press_machine, seated_row, hack_squat, preacher_curl_bench, ab_bench, hyperextension_bench, battle_ropes, trx_suspension, medicine_ball, stability_ball, foam_roller, yoga_mat, stair_climber, stationary_bike, spin_bike, functional_trainer]
+- details: weight range, adjustability, quantity if visible
+- confidence: high / medium / low
+
+Rules:
+- Count distinct pieces (e.g., "3 benches" not just "bench")
+- Note weight ranges when visible ("dumbbells 5-50 lbs")
+- Distinguish flat bench vs incline vs adjustable
+- Include accessories: resistance bands, yoga mats, foam rollers
+- Ignore non-exercise items (TV, water fountain, towel rack)
+- If unsure about a piece of equipment, include it with confidence: low rather than omitting it
+
+Return JSON array. No commentary.
