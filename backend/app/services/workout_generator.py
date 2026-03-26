@@ -65,10 +65,12 @@ def generate_workout(
     client = anthropic.Anthropic()
 
     prompt_template = _load_prompt()
-    prompt = prompt_template.format(
-        equipment_list=_format_equipment_list(equipment),
-        target_muscles=", ".join(target_muscles),
-        duration_minutes=duration_minutes,
+    prompt = prompt_template.replace(
+        "{equipment_list}", _format_equipment_list(equipment)
+    ).replace(
+        "{target_muscles}", ", ".join(target_muscles)
+    ).replace(
+        "{duration_minutes}", str(duration_minutes)
     )
 
     logger.info(
@@ -90,7 +92,7 @@ def generate_workout(
     )
 
     raw_text = message.content[0].text.strip()
-    logger.debug("Raw Claude response: %s", raw_text[:500])
+    logger.info("Raw Claude response (first 500 chars): %s", raw_text[:500])
 
     # Strip markdown code blocks if present
     if "```" in raw_text:
@@ -104,8 +106,16 @@ def generate_workout(
         if ch in ('{', '['):
             json_start = i
             break
-    if json_start > 0:
+
+    if json_start >= 0:
         raw_text = raw_text[json_start:]
+    elif '"exercises"' in raw_text:
+        # Claude returned a bare key-value without wrapping {}
+        # Wrap it in braces
+        raw_text = "{" + raw_text.strip() + "}"
+        # Also need to close any trailing content
+        if not raw_text.rstrip().endswith("}"):
+            raw_text = raw_text.rstrip().rstrip(",") + "}"
 
     result = json.loads(raw_text)
 
