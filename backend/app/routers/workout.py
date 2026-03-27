@@ -29,15 +29,19 @@ async def generate_workout_endpoint(
     Uses the confirmed equipment list for the given gym along with the
     user's target muscles and time constraint to produce a structured workout.
     """
-    gym = gym_store.get_gym(request.gym_id)
-    if gym is None:
-        raise HTTPException(status_code=404, detail=f"Gym {request.gym_id} not found")
+    # Use inline equipment if provided, otherwise look up from gym_id
+    if request.equipment:
+        equipment = [e.model_dump() for e in request.equipment]
+    else:
+        gym = gym_store.get_gym(request.gym_id)
+        if gym is None:
+            raise HTTPException(status_code=404, detail=f"Gym {request.gym_id} not found")
+        equipment = gym.get("equipment", [])
 
-    equipment = gym.get("equipment", [])
     if not equipment:
         raise HTTPException(
             status_code=400,
-            detail="No equipment found for this gym. Scan and confirm equipment first.",
+            detail="No equipment found. Scan and confirm equipment first.",
         )
 
     target_muscles = [m.value for m in request.target_muscles]

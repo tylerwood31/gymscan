@@ -130,6 +130,10 @@ class WorkoutGenerateRequest(BaseModel):
     gym_id: str
     target_muscles: list[MuscleGroup] = Field(..., min_length=1)
     duration_minutes: int = Field(..., ge=10, le=120)
+    equipment: Optional[list[EquipmentConfirmation]] = Field(
+        default=None,
+        description="Optional inline equipment list. If provided, gym_id lookup is skipped.",
+    )
 
 
 class Exercise(BaseModel):
@@ -183,3 +187,49 @@ class GymResponse(BaseModel):
     workouts: list[str] = Field(
         default_factory=list, description="List of workout IDs generated for this gym"
     )
+
+
+# --- Workout Suggestion Models ---
+
+
+class WorkoutSuggestion(BaseModel):
+    """The suggested workout details."""
+
+    target_muscles: list[str]
+    reasoning: str
+    exercise_count: int = Field(..., ge=1)
+    estimated_minutes: int = Field(..., ge=1)
+
+
+class SuggestResponse(BaseModel):
+    """Response body for GET /api/workout/suggest."""
+
+    suggestion: WorkoutSuggestion
+    workout_id: Optional[str] = None
+
+
+# --- Workout History Models ---
+
+
+class MuscleCoverageEntry(BaseModel):
+    """Coverage data for a single muscle group."""
+
+    last_trained: Optional[str] = None
+    days_ago: Optional[int] = None
+
+
+class WorkoutHistoryEntry(BaseModel):
+    """A single completed workout in the history."""
+
+    workout_id: str
+    target_muscles: list[str]
+    completed_at: str
+    exercise_count: int
+
+
+class HistoryResponse(BaseModel):
+    """Response body for GET /api/workout/history."""
+
+    workouts: list[WorkoutHistoryEntry]
+    muscle_coverage: dict[str, MuscleCoverageEntry]
+    current_streak: int
